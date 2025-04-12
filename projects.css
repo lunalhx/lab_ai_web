@@ -2,22 +2,23 @@
 
 /* 页面标题区域 */
 .projects-hero {
-    background-color: var(--primary-light);
-    padding: var(--spacing-xl) 0;
-    text-align: center;
+    background-image: url('images/projects-bg.jpg');
 }
 
-.page-title {
-    font-size: 2.5rem;
-    color: var(--primary-dark);
+.projects-hero .page-title {
+    font-size: 2.8rem;
+    color: var(--text-light);
     margin-bottom: var(--spacing-md);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.page-subtitle {
+.projects-hero .page-subtitle {
     font-size: 1.2rem;
-    color: var(--text-medium);
+    color: var(--text-light);
     max-width: 800px;
     margin: 0 auto;
+    opacity: 0.9;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 /* 筛选按钮 */
