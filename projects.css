@@ -1,0 +1,361 @@
+/* 研究项目页面样式 */
+
+/* 页面标题区域 */
+.projects-hero {
+    background-color: var(--primary-light);
+    padding: var(--spacing-xl) 0;
+    text-align: center;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    color: var(--primary-dark);
+    margin-bottom: var(--spacing-md);
+}
+
+.page-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-medium);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* 筛选按钮 */
+.projects-filter {
+    padding: var(--spacing-md) 0;
+    background-color: #ffffff;
+    border-bottom: 1px solid var(--secondary-light);
+    position: sticky;
+    top: 95px; /* 头部导航栏的高度，根据实际情况调整 */
+    z-index: 900;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.projects-filter.scrolled {
+    padding: var(--spacing-sm) 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+}
+
+.filter-btn {
+    padding: 0.5rem 1.5rem;
+    background-color: transparent;
+    border: 1px solid var(--secondary-color);
+    border-radius: 30px;
+    color: var(--secondary-dark);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    background-color: var(--primary-light);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.filter-btn.active {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+/* 项目列表 */
+.projects-list {
+    padding: var(--spacing-xl) 0;
+}
+
+.projects-category {
+    margin-bottom: var(--spacing-xl);
+}
+
+.category-title {
+    font-size: 2rem;
+    color: var(--primary-dark);
+    margin-bottom: var(--spacing-lg);
+    border-bottom: 2px solid var(--primary-light);
+    padding-bottom: var(--spacing-xs);
+    position: relative;
+}
+
+.category-title::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+}
+
+/* 项目卡片 */
+.project-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+@media (min-width: 992px) {
+    .project-card {
+        flex-direction: row;
+    }
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.project-status {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.25rem 0.5rem;
+    background-color: var(--primary-light);
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 0.85rem;
+    border-radius: 4px;
+    z-index: 10;
+}
+
+.project-status.completed {
+    background-color: #d1e7dd;
+    color: #146c43;
+}
+
+.project-image {
+    height: 300px;
+    overflow: hidden;
+    flex: none;
+}
+
+@media (min-width: 992px) {
+    .project-image {
+        width: 35%;
+        height: auto;
+    }
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.05);
+}
+
+.project-content {
+    padding: var(--spacing-lg);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-title {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-dark);
+    line-height: 1.4;
+}
+
+.project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    color: var(--text-medium);
+    font-size: 0.95rem;
+}
+
+.project-time i,
+.project-type i {
+    margin-right: 5px;
+    color: var(--primary-color);
+}
+
+.project-description {
+    color: var(--text-medium);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: var(--spacing-md);
+}
+
+.project-pi {
+    margin-bottom: var(--spacing-md);
+    padding: var(--spacing-sm) 0;
+    border-top: 1px solid var(--secondary-light);
+    border-bottom: 1px solid var(--secondary-light);
+}
+
+.project-pi p {
+    margin-bottom: 5px;
+    color: var(--text-medium);
+    font-size: 0.95rem;
+}
+
+.project-outputs {
+    margin-bottom: var(--spacing-md);
+}
+
+.project-outputs p {
+    margin-bottom: 5px;
+    color: var(--text-medium);
+    font-size: 0.95rem;
+}
+
+.project-outputs ul {
+    padding-left: 20px;
+    margin-top: 5px;
+}
+
+.project-outputs li {
+    margin-bottom: 5px;
+    color: var(--text-medium);
+    font-size: 0.95rem;
+}
+
+.project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    margin-top: auto;
+}
+
+.project-link {
+    color: var(--primary-color);
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.project-link:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+.project-link i {
+    margin-right: 5px;
+}
+
+/* 合作伙伴部分 */
+.collaborators {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--secondary-light);
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--text-medium);
+    margin-bottom: var(--spacing-xl);
+    font-size: 1.1rem;
+}
+
+.collaborators-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: var(--spacing-lg);
+    align-items: center;
+    justify-items: center;
+}
+
+.collaborator-logo {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.collaborator-logo:hover {
+    transform: scale(1.05);
+}
+
+.collaborator-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.collaborator-logo:hover img {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+/* 隐藏筛选后的元素 */
+.project-card.hidden {
+    display: none;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .filter-buttons {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .filter-btn {
+        width: auto;
+        padding: 0.4rem 1rem;
+        font-size: 0.9rem;
+        margin-bottom: 5px;
+    }
+    
+    .projects-filter {
+        top: 60px; /* 移动设备上头部导航栏高度可能不同 */
+        padding: var(--spacing-sm) 0;
+    }
+    
+    .collaborators-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .project-meta {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .project-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* 动画效果 */
+.project-card {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+} 
