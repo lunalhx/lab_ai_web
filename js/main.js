@@ -91,14 +91,80 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // 改进实验室结构子菜单的交互
+    const labStructureLink = document.querySelector('.lab-structure');
+    const subDropdown = document.querySelector('.sub-dropdown.key-labs');
+    
+    if (labStructureLink && subDropdown) {
+        // 鼠标悬停在实验室结构链接上时
+        labStructureLink.addEventListener('mouseenter', function() {
+            subDropdown.style.display = 'block';
+            // 使用setTimeout延迟添加visible类，创建淡入效果
+            setTimeout(() => {
+                subDropdown.classList.add('visible');
+            }, 50);
+        });
+        
+        // 为子菜单添加延迟隐藏
+        let hideTimeout;
+        
+        // 鼠标离开实验室结构链接时，不立即隐藏
+        labStructureLink.addEventListener('mouseleave', function(e) {
+            // 检查鼠标是否移向子菜单方向
+            const rect = labStructureLink.getBoundingClientRect();
+            const isMovingToSubmenu = e.clientX > rect.right; // 鼠标向右移动（子菜单方向）
+            
+            if (!isMovingToSubmenu) {
+                hideTimeout = setTimeout(() => {
+                    subDropdown.classList.remove('visible');
+                    // 在过渡效果完成后隐藏
+                    setTimeout(() => {
+                        if (!subDropdown.classList.contains('visible')) {
+                            subDropdown.style.display = 'none';
+                        }
+                    }, 300);
+                }, 300);
+            }
+        });
+        
+        // 鼠标进入子菜单时，清除隐藏计时器
+        subDropdown.addEventListener('mouseenter', function() {
+            clearTimeout(hideTimeout);
+        });
+        
+        // 鼠标离开子菜单时，开始倒计时隐藏
+        subDropdown.addEventListener('mouseleave', function() {
+            hideTimeout = setTimeout(() => {
+                subDropdown.classList.remove('visible');
+                // 在过渡效果完成后隐藏
+                setTimeout(() => {
+                    if (!subDropdown.classList.contains('visible')) {
+                        subDropdown.style.display = 'none';
+                    }
+                }, 300);
+            }, 300); // 300ms延迟，让用户有时间将鼠标移回
+        });
+    }
+
     // 移动端菜单
     const menuToggle = document.querySelector('.menu-toggle');
     const nav = document.querySelector('nav');
     
-    if (menuToggle) {
+    if (menuToggle && nav) {
         menuToggle.addEventListener('click', () => {
             nav.classList.toggle('active');
             menuToggle.classList.toggle('active');
         });
     }
+
+    // 获取所有实验室结构链接
+    const labStructureLinks = document.querySelectorAll('.lab-structure');
+    
+    // 为每个链接添加点击事件监听器
+    labStructureLinks.forEach(function(link) {
+        link.addEventListener('click', function(event) {
+            // 阻止默认行为（阻止链接跳转）
+            event.preventDefault();
+        });
+    });
 }); 

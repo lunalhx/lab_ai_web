@@ -1,0 +1,24 @@
+{
+  "name": "web",
+  "version": "1.0.0",
+  "description": "一、目标：构建一个专业、现代化、交互友好的实验室官网，清晰展示团队的研究方向、成员、成果及动态，提升学术影响力，并支持资源共享。",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lunalhx/web.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lunalhx/web/issues"
+  },
+  "homepage": "https://github.com/lunalhx/web#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

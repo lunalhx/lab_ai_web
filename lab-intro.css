@@ -1,0 +1,256 @@
+/* 实验室介绍页面样式 */
+
+/* 页面标题区域 */
+.lab-intro-hero {
+    background-image: url('images/lab-intro-bg.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* 内容区域 */
+.lab-intro-content {
+    padding: var(--spacing-xxl) 0;
+    background-color: #ffffff;
+}
+
+.lab-intro-content .container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.content-section {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+.content-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--primary-light);
+}
+
+.content-section p {
+    line-height: 1.8;
+    color: var(--text-medium);
+    margin-bottom: 1.5rem;
+}
+
+/* 动画效果 */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 二级下拉菜单样式 */
+.sub-dropdown {
+    position: absolute;
+    left: 100%;
+    top: 0;
+    background-color: #fff;
+    min-width: 220px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    z-index: 1000;
+    padding: var(--spacing-xs) 0;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .lab-intro-content .container {
+        padding: 0 var(--spacing-md);
+    }
+    
+    .sub-dropdown {
+        position: static;
+        box-shadow: none;
+        min-width: auto;
+        padding-left: var(--spacing-md);
+        border-radius: 0;
+    }
+    
+    .sub-dropdown a {
+        font-size: 0.9rem;
+        padding: var(--spacing-xs) var(--spacing-sm);
+    }
+}
+
+/* 文旅重点实验室样式 */
+.key-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.feature-item {
+    padding: 1.5rem;
+    border-radius: 8px;
+    background-color: var(--primary-light);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.feature-item i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.feature-item h3 {
+    margin-bottom: 0.5rem;
+    color: var(--primary-dark);
+}
+
+.feature-item p {
+    margin-bottom: 0;
+    color: var(--text-medium);
+}
+
+.research-directions {
+    padding-left: 1.5rem;
+}
+
+.research-directions li {
+    margin-bottom: 1.5rem;
+}
+
+.research-directions h3 {
+    color: var(--primary-dark);
+    margin-bottom: 0.5rem;
+}
+
+.achievements {
+    margin: 2rem 0;
+}
+
+.achievement-card {
+    display: flex;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.achievement-card:hover {
+    transform: translateX(5px);
+}
+
+.achievement-icon {
+    flex: 0 0 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+}
+
+.achievement-content {
+    flex: 1;
+}
+
+.achievement-content h3 {
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
+
+.achievement-content p {
+    margin-bottom: 0;
+}
+
+.partners {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin: 2rem 0;
+}
+
+.partner-logo {
+    width: 150px;
+    height: 80px;
+    margin: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.partner-logo:hover {
+    filter: grayscale(0);
+    opacity: 1;
+}
+
+.partner-logo img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.contact-details {
+    background-color: var(--secondary-light);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 1.5rem;
+}
+
+.contact-details p {
+    margin-bottom: 0.5rem;
+}
+
+.contact-details i {
+    width: 20px;
+    color: var(--primary-color);
+    margin-right: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .key-features {
+        grid-template-columns: 1fr;
+    }
+    
+    .achievement-card {
+        flex-direction: column;
+    }
+    
+    .achievement-icon {
+        margin-bottom: 1rem;
+    }
+    
+    .partners {
+        justify-content: center;
+    }
+    
+    .partner-logo {
+        width: 120px;
+        height: 60px;
+    }
+} 

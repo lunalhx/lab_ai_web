@@ -3,10 +3,92 @@
  */
 
 document.addEventListener('DOMContentLoaded', function() {
-    // 获取所有筛选按钮和人员卡片
-    const filterButtons = document.querySelectorAll('.filter-btn');
+    // 获取URL参数
+    const urlParams = new URLSearchParams(window.location.search);
+    const filter = urlParams.get('filter');
+
+    // 获取所有成员卡片
     const peopleCards = document.querySelectorAll('.people-card');
-    const filterSection = document.querySelector('.people-filter');
+    
+    // 获取所有筛选按钮
+    const filterButtons = document.querySelectorAll('.filter-btn');
+
+    // 获取教师和学生团队的section
+    const teachersSection = document.getElementById('teachers');
+    const studentsSection = document.getElementById('students');
+    
+    // 根据URL参数设置初始筛选状态
+    if (filter) {
+        filterButtons.forEach(button => {
+            if (button.getAttribute('data-filter') === filter) {
+                button.classList.add('active');
+            } else {
+                button.classList.remove('active');
+            }
+        });
+        
+        // 显示对应的成员和标题
+        filterContent(filter);
+    }
+
+    // 为筛选按钮添加点击事件
+    filterButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            // 移除所有按钮的active类
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // 为当前点击的按钮添加active类
+            button.classList.add('active');
+            
+            const filterValue = button.getAttribute('data-filter');
+            
+            // 更新URL参数
+            const newUrl = new URL(window.location.href);
+            newUrl.searchParams.set('filter', filterValue);
+            window.history.pushState({}, '', newUrl);
+            
+            // 显示对应的成员和标题
+            filterContent(filterValue);
+        });
+    });
+
+    // 为团队成员导航链接添加点击事件，显示全部成员
+    const teamNavLink = document.querySelector('.dropdown > a[href="people.html"]');
+    if (teamNavLink) {
+        teamNavLink.addEventListener('click', function(e) {
+            // 不阻止默认行为，让页面正常跳转
+            // 但是清除URL中的filter参数
+            const newUrl = new URL(window.location.href);
+            newUrl.searchParams.delete('filter');
+            window.history.pushState({}, '', newUrl);
+        });
+    }
+
+    // 筛选内容的函数
+    function filterContent(filterValue) {
+        // 处理卡片显示
+        peopleCards.forEach(card => {
+            if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+
+        // 处理标题显示
+        if (filterValue === 'teachers') {
+            teachersSection.style.display = 'block';
+            studentsSection.style.display = 'none';
+        } else if (filterValue === 'students') {
+            teachersSection.style.display = 'none';
+            studentsSection.style.display = 'block';
+        } else {
+            teachersSection.style.display = 'block';
+            studentsSection.style.display = 'block';
+        }
+    }
     
     // 滚动监听
     window.addEventListener('scroll', function() {
@@ -16,61 +98,6 @@ document.addEventListener('DOMContentLoaded', function() {
             filterSection.classList.remove('scrolled');
         }
     });
-    
-    // 为每个筛选按钮添加点击事件
-    filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // 移除所有按钮的active类
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            
-            // 为当前点击的按钮添加active类
-            button.classList.add('active');
-            
-            // 获取筛选类别
-            const filterValue = button.getAttribute('data-filter');
-            
-            // 筛选人员卡片
-            filterPeople(filterValue);
-        });
-    });
-    
-    // 筛选人员卡片的函数
-    function filterPeople(category) {
-        peopleCards.forEach(card => {
-            // 获取卡片的类别
-            const cardCategory = card.getAttribute('data-category');
-            
-            // 如果筛选类别是"all"或卡片类别包含筛选类别，则显示卡片
-            if (category === 'all' || cardCategory === category) {
-                card.classList.remove('hidden');
-                // 添加动画效果
-                setTimeout(() => {
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }, 50);
-            } else {
-                // 隐藏卡片
-                card.classList.add('hidden');
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-            }
-        });
-        
-        // 显示或隐藏相应的部分标题
-        const sections = document.querySelectorAll('.people-section');
-        sections.forEach(section => {
-            const sectionId = section.getAttribute('id');
-            const cardsInSection = section.querySelectorAll('.people-card:not(.hidden)');
-            
-            if (category === 'all' || sectionId === category) {
-                section.style.display = 'block';
-            } else if (cardsInSection.length === 0) {
-                section.style.display = 'none';
-            } else {
-                section.style.display = 'block';
-            }
-        });
-    }
     
     // 为每个人员卡片设置初始动画延迟
     peopleCards.forEach((card, index) => {

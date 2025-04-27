@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>平台仪器 - 前沿技术研究实验室</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .main-title {
+            text-align: center;
+            margin: 50px 0 40px;
+        }
+        
+        .main-title h1 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .cards-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin: 40px 0 80px;
+        }
+        
+        .card {
+            width: 350px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            background-color: white;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+        
+        .card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary-color), #0056b3);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.5s ease;
+            z-index: -1;
+        }
+        
+        .card:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        
+        .card-img {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .card-icon {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, var(--primary-color), #0056b3);
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 8rem;
+            transition: all 0.5s ease;
+        }
+        
+        .card:hover .card-icon {
+            color: rgba(255, 255, 255, 0.4);
+            transform: scale(1.1);
+        }
+        
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .card:hover .card-img img {
+            transform: scale(1.05);
+        }
+        
+        .card-content {
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .card-content h2 {
+            color: var(--primary-color);
+            margin: 0 0 15px;
+            font-size: 1.6rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .card-content h2 i {
+            margin-right: 10px;
+            font-size: 1.8rem;
+        }
+        
+        .card-content p {
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .card-btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary-color);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .card-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background-color: white;
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+        
+        .card-btn:hover {
+            color: var(--primary-color);
+        }
+        
+        .card-btn:hover::before {
+            width: 100%;
+        }
+        
+        @media (max-width: 768px) {
+            .cards-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .card {
+                width: 90%;
+                max-width: 350px;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <div class="lab-name">
+                    <h1>前沿技术研究实验室</h1>
+                    <h2>Advanced Technology Research Laboratory</h2>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li class="dropdown">
+                        <a href="lab-intro.html">实验室介绍</a>
+                        <div class="dropdown-content">
+                            <a href="#" class="lab-structure">实验室结构</a>
+                            <div class="sub-dropdown key-labs">
+                                <a href="key-lab-culture.html">文旅重点实验室</a>
+                                <a href="key-lab-ai.html">人工智能与算力技术重点实验室</a>
+                            </div>
+                            <a href="committee.html">标委会</a>
+                            <a href="society.html">AI探索者联盟社团</a>
+                            <a href="academic-committee.html">学术委员会</a>
+                            <a href="leaders.html">现任领导</a>
+                            <a href="contact.html">联系我们</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="organization.html" class="active">机构设置</a>
+                        <div class="dropdown-content">
+                            <a href="lab-structure.html">实验室结构</a>
+                            <a href="instruments.html" class="active">平台仪器</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="people.html">团队成员</a>
+                        <div class="dropdown-content">
+                            <a href="people.html" class="filter-btn" data-filter="teachers">教师队伍</a>
+                            <a href="people.html" class="filter-btn" data-filter="students">学生队伍</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="projects.html">研究项目</a>
+                        <div class="dropdown-content">
+                            <a href="projects.html" class="filter-btn" data-filter="national">国家级项目</a>
+                            <a href="projects.html" class="filter-btn" data-filter="enterprise">企业合作项目</a>
+                            <a href="projects.html" class="filter-btn" data-filter="international">国际合作项目</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="main-title">
+        <div class="container">
+            <h1>平台仪器</h1>
+        </div>
+    </div>
+
+    <section class="main-content">
+        <div class="container">
+            <div class="cards-container">
+                <!-- 仪器卡片 -->
+                <div class="card" onclick="window.location.href='equipment.html';">
+                    <div class="card-img">
+                        <div class="card-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <img src="images/equipment.jpg" alt="实验室仪器" onerror="this.src='https://via.placeholder.com/350x200?text=实验室仪器'">
+                    </div>
+                    <div class="card-content">
+                        <h2><i class="fas fa-tools"></i>仪器</h2>
+                        <p>前沿技术研究实验室拥有先进的科研设备，包括高性能服务器、GPU集群、数据采集系统等，总价值超过4800万元。</p>
+                        <a href="equipment.html" class="card-btn">查看详情</a>
+                    </div>
+                </div>
+                
+                <!-- 平台卡片 -->
+                <div class="card" onclick="window.location.href='platforms.html';">
+                    <div class="card-img">
+                        <div class="card-icon">
+                            <i class="fas fa-cube"></i>
+                        </div>
+                        <img src="images/platforms.jpg" alt="研究平台" onerror="this.src='https://via.placeholder.com/350x200?text=研究平台'">
+                    </div>
+                    <div class="card-content">
+                        <h2><i class="fas fa-cube"></i>平台</h2>
+                        <p>实验室建有多个专业研究平台，包括高性能计算平台、智能芯片测试平台、数据安全与隐私计算平台等。</p>
+                        <a href="platforms.html" class="card-btn">查看详情</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="lab-name-footer">
+                        <h3>前沿技术研究实验室</h3>
+                        <p>Advanced Technology Research Laboratory</p>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>导航</h4>
+                        <ul>
+                            <li><a href="index.html">首页</a></li>
+                            <li><a href="lab-intro.html">实验室介绍</a></li>
+                            <li><a href="organization.html">机构设置</a></li>
+                            <li><a href="people.html">团队成员</a></li>
+                            <li><a href="projects.html">研究项目</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-group">
+                        <h4>资源</h4>
+                        <ul>
+                            <li><a href="#">学术资源</a></li>
+                            <li><a href="#">开源代码</a></li>
+                            <li><a href="#">数据集</a></li>
+                            <li><a href="#">教程</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-group">
+                        <h4>关注我们</h4>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-github"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-weixin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 前沿技术研究实验室. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html> 

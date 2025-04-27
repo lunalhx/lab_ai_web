@@ -2,129 +2,113 @@
 
 /* 页面标题区域 */
 .people-hero {
-    background-image: url('images/team-bg.jpg');
-}
-
-.page-title {
-    font-size: 2.8rem;
+    background-image: url('../images/people-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 80px 0;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    position: relative;
     color: var(--text-light);
-    margin-bottom: var(--spacing-md);
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.page-subtitle {
+.people-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.65);
+    z-index: 1;
+}
+
+.people-hero .container {
+    position: relative;
+    z-index: 2;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+}
+
+.people-hero .page-title {
+    font-size: 2.8rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--text-light);
+}
+
+.people-hero .page-subtitle {
     font-size: 1.2rem;
     color: var(--text-light);
     opacity: 0.9;
     max-width: 800px;
     margin: 0 auto;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-}
-
-/* 筛选按钮 */
-.people-filter {
-    padding: var(--spacing-md) 0;
-    background-color: #ffffff;
-    border-bottom: 1px solid var(--secondary-light);
-    position: sticky;
-    top: 95px; /* 头部导航栏的高度，根据实际情况调整 */
-    z-index: 900;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease;
-}
-
-.filter-title {
-    text-align: center;
-    margin-bottom: 8px;
-    font-weight: 500;
-    color: var(--secondary-dark);
-    font-size: 0.95rem;
-}
-
-.people-filter.scrolled {
-    padding: var(--spacing-sm) 0;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.filter-buttons {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: var(--spacing-md);
-}
-
-.filter-btn {
-    padding: 0.5rem 1.5rem;
-    background-color: transparent;
-    border: 1px solid var(--secondary-color);
-    border-radius: 30px;
-    color: var(--secondary-dark);
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.filter-btn:hover {
-    background-color: var(--primary-light);
-    border-color: var(--primary-color);
-    color: var(--primary-color);
-}
-
-.filter-btn.active {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-    color: white;
 }
 
 /* 团队成员卡片 */
 .people-section {
-    padding: var(--spacing-xl) 0;
+    padding: var(--spacing-xxl) 0;
     background-color: #ffffff;
 }
 
-.people-section:nth-child(even) {
-    background-color: var(--secondary-light);
+.people-section .section-title {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-lg);
+    color: var(--text-dark);
+    text-align: center;
+    position: relative;
+    padding-bottom: var(--spacing-sm);
+}
+
+.people-section .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--primary-color);
 }
 
 .people-grid {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: var(--spacing-xs);
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 var(--spacing-sm);
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-xl);
 }
 
 .people-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 0;
+    padding-bottom: var(--spacing-md);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
-    background-color: #ffffff;
-    border-radius: 8px;
+    align-items: center;
+    text-align: center;
     overflow: hidden;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    width: 100%;
-    max-width: 230px;
-    margin: 0 auto;
 }
 
 .people-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
 .people-image {
     width: 100%;
-    height: 0;
-    padding-bottom: 120%; /* 这个值是100%÷1.2=83.33%，实现1.2:1的长宽比 */
-    position: relative;
+    height: 250px;
+    border-radius: 8px;
     overflow: hidden;
+    margin-bottom: var(--spacing-sm);
+    border: none;
 }
 
 .people-image img {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -136,52 +120,40 @@
 }
 
 .people-info {
-    padding: var(--spacing-sm);
+    padding: 0 var(--spacing-md);
+    width: 100%;
 }
 
 .people-info h3 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     margin-bottom: var(--spacing-xs);
     color: var(--text-dark);
 }
 
 .people-title {
+    font-size: 0.9rem;
     color: var(--primary-color);
     font-weight: 500;
     margin-bottom: var(--spacing-xs);
-    font-size: 0.9rem;
 }
 
 .people-research {
     color: var(--text-medium);
-    margin-bottom: var(--spacing-sm);
     font-size: 0.85rem;
-}
-
-.people-position {
-    color: var(--text-medium);
-    font-weight: 500;
     margin-bottom: var(--spacing-sm);
-    font-size: 0.85rem;
-}
-
-.people-bio {
-    color: var(--text-medium);
-    font-size: 0.8rem;
-    line-height: 1.4;
-    margin-top: var(--spacing-sm);
 }
 
 .people-links {
     display: flex;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
     flex-wrap: wrap;
-    gap: var(--spacing-xs) var(--spacing-sm);
-    margin-bottom: var(--spacing-xs);
+    justify-content: center;
 }
 
 .people-links a {
     color: var(--secondary-color);
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     transition: color 0.3s ease;
 }
 
@@ -189,20 +161,51 @@
     color: var(--primary-color);
 }
 
-.people-links i {
-    margin-right: 5px;
+.people-bio {
+    color: var(--text-medium);
+    font-size: 0.85rem;
+    line-height: 1.4;
 }
 
-/* 隐藏筛选的人员 */
-.people-card.hidden {
-    display: none;
+/* 响应式设计 */
+@media (max-width: 1200px) {
+    .people-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
 
-/* 动画效果 */
-.people-card {
-    animation: fadeIn 0.5s ease-out forwards;
+@media (max-width: 992px) {
+    .people-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
+@media (max-width: 768px) {
+    .people-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .people-hero {
+        padding: 60px 0;
+        height: 250px;
+    }
+    
+    .people-hero .page-title {
+        font-size: 2rem;
+    }
+    
+    .people-hero .page-subtitle {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .people-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 添加动画 */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -214,55 +217,7 @@
     }
 }
 
-/* 响应式设计 */
-@media (max-width: 768px) {
-    .people-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: var(--spacing-xs);
-    }
-    
-    .filter-buttons {
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    .filter-btn {
-        width: auto;
-        padding: 0.4rem 1rem;
-        font-size: 0.9rem;
-        margin-bottom: 5px;
-    }
-    
-    .people-filter {
-        top: 60px; /* 移动设备上头部导航栏高度可能不同 */
-        padding: var(--spacing-sm) 0;
-    }
-    
-    .people-card {
-        max-width: 160px;
-    }
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
-    .people-grid {
-        grid-template-columns: repeat(4, 1fr);
-        gap: var(--spacing-xs);
-    }
-    
-    .people-card {
-        max-width: 210px;
-    }
-}
-
-@media (min-width: 1025px) and (max-width: 1280px) {
-    .people-grid {
-        grid-template-columns: repeat(5, 1fr);
-        gap: var(--spacing-xs);
-    }
-    
-    .people-card {
-        max-width: 220px;
-    }
+.people-card {
+    animation: fadeIn 0.5s ease-out forwards;
+    animation-delay: calc(var(--animation-order) * 0.1s);
 } 

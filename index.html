@@ -19,10 +19,43 @@
             <nav>
                 <ul>
                     <li><a href="index.html" class="active">首页</a></li>
-                    <li><a href="people.html">团队成员</a></li>
-                    <li><a href="publications.html">论文发表</a></li>
-                    <li><a href="projects.html">研究项目</a></li>
-                    <li><a href="others.html">其他</a></li>
+                    <li class="dropdown">
+                        <a href="lab-intro.html">实验室介绍</a>
+                        <div class="dropdown-content">
+                            <a href="#" class="lab-structure">实验室结构</a>
+                            <div class="sub-dropdown key-labs">
+                                <a href="key-lab-culture.html">文旅重点实验室</a>
+                                <a href="key-lab-ai.html">人工智能与算力技术重点实验室</a>
+                            </div>
+                            <a href="committee.html">标委会</a>
+                            <a href="society.html">AI探索者联盟社团</a>
+                            <a href="academic-committee.html">学术委员会</a>
+                            <a href="leaders.html">现任领导</a>
+                            <a href="contact.html">联系我们</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="organization.html">机构设置</a>
+                        <div class="dropdown-content">
+                            <a href="lab-structure.html">实验室结构</a>
+                            <a href="instruments.html">平台仪器</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="people.html">团队成员</a>
+                        <div class="dropdown-content">
+                            <a href="people.html" class="filter-btn" data-filter="teachers">教师队伍</a>
+                            <a href="people.html" class="filter-btn" data-filter="students">学生队伍</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="projects.html">研究项目</a>
+                        <div class="dropdown-content">
+                            <a href="projects.html" class="filter-btn" data-filter="national">国家级项目</a>
+                            <a href="projects.html" class="filter-btn" data-filter="enterprise">企业合作项目</a>
+                            <a href="projects.html" class="filter-btn" data-filter="international">国际合作项目</a>
+                        </div>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -34,184 +67,561 @@
                 <h2>推动科技创新的前沿</h2>
                 <p>我们致力于解决计算机科学与人工智能领域的关键挑战，培养未来的技术领导者</p>
                 <div class="cta-buttons">
-                    <a href="publications.html" class="btn btn-primary">查看研究成果</a>
+                    <a href="projects.html" class="btn btn-primary">查看研究成果</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="research-areas">
+    <section class="main-content">
         <div class="container">
-            <h2 class="section-title">研究方向</h2>
-            <div class="areas-grid">
-                <div class="area-card">
-                    <div class="area-icon">
-                        <i class="fas fa-microchip"></i>
+            <div class="content-grid">
+                <div class="left-column">
+                    <div class="notice-board">
+                        <h2 class="board-title">
+                            通知公告
+                            <a href="notices.html" class="more-link-top">更多 <i class="fas fa-angle-right"></i></a>
+                        </h2>
+                        <div class="notice-list">
+                            <div class="notice-item">
+                                <div class="notice-date">10.16</div>
+                                <div class="notice-content">
+                                    <h3><a href="notices_html/20231016.html" class="notice-title-link">关于举办全国旅游标准化技术委员会业务工作培训班的通知</a></h3>
+                                </div>
+                            </div>
+                            <div class="notice-item">
+                                <div class="notice-date">05.18</div>
+                                <div class="notice-content">
+                                    <h3><a href="notices_html/20230518.html" class="notice-title-link">甘肃省实施标准化发展战略领导小组办公室关于报送"十四五"以来标准化工作总结和下一步工作计划的通知</a></h3>
+                                </div>
+                            </div>
+                            <div class="notice-item">
+                                <div class="notice-date">04.25</div>
+                                <div class="notice-content">
+                                    <h3><a href="notices_html/20230425.html" class="notice-title-link">全国旅游标准化技术委员会关于征集2023年旅游业国家标准、行业标准制修订计划项目的公告</a></h3>
+                                </div>
+                            </div>
+                            <div class="notice-item">
+                                <div class="notice-date">09.17</div>
+                                <div class="notice-content">
+                                    <h3><a href="notices_html/20220917.html" class="notice-title-link">关于同意引进王建州的通知</a></h3>
+                                </div>
+                            </div>
+                            <div class="notice-item">
+                                <div class="notice-date">04.12</div>
+                                <div class="notice-content">
+                                    <h3><a href="notices_html/20220412.html" class="notice-title-link">关于协助做好数字藏品专区建立工作的通知</a></h3>
+                                </div>
+                            </div>
+                            <div class="notice-item">
+                                <div class="notice-date">03.10</div>
+                                <div class="notice-content">
+                                    <h3><a href="notices_html/20220310.html" class="notice-title-link">关于召开甘肃省文化和旅游标准化技术委员会成立大会暨标委会第一次会议的通知</a></h3>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <h3>算力技术</h3>
-                    <p>研究高性能计算架构与优化算法，推动AI计算基础设施发展</p>
+                    <div class="academic-activities">
+                        <h2 class="board-title">
+                            学术活动
+                            <a href="activities.html" class="more-link-top">更多 <i class="fas fa-angle-right"></i></a>
+                        </h2>
+                        <div class="activity-list">
+                            <div class="activity-item featured-activity">
+                                <div class="featured-activity-container">
+                                    <div class="featured-activity-image">
+                                        <img src="images/news/ai-lecture.jpg" alt="人工智能与算力技术重点实验室交流座谈" class="activity-image">
+                                    </div>
+                                    <div class="featured-activity-info">
+                                        <div class="activity-date">2024-10-18</div>
+                                        <div class="activity-content">
+                                            <h3>人工智能与算力技术重点实验室交流座谈</h3>
+                                            <p><strong>时间：</strong>2024年10月18日</p>
+                                            <p><strong>地点：</strong>飞云楼209</p>
+                                            <a href="activities_html/2024-10-18.html" class="activity-more">了解更多</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="activity-item simple-activity">
+                                <a href="activities_html/2023-10-27.html" class="activity-link">
+                                    <div class="activity-date">2023-10-27</div>
+                                    <div class="activity-content">
+                                        <h3>甘肃东数西算与人工智能产业发展研讨会暨燧弘探索算力运营合作研讨会</h3>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="activity-item simple-activity">
+                                <a href="activities_html/2023-10-24.html" class="activity-link">
+                                    <div class="activity-date">2023-10-24</div>
+                                    <div class="activity-content">
+                                        <h3>飞云大讲堂</h3>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="activity-item simple-activity">
+                                <a href="activities_html/2023-08-07.html" class="activity-link">
+                                    <div class="activity-date">2023-08-06</div>
+                                    <div class="activity-content">
+                                        <h3>算力技术大会</h3>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="area-card">
-                    <div class="area-icon">
-                        <i class="fas fa-brain"></i>
+                <div class="right-column">
+                    <div class="news-board">
+                        <h2 class="board-title">
+                            新闻动态
+                            <a href="news.html" class="more-link-top">更多 <i class="fas fa-angle-right"></i></a>
+                        </h2>
+                        <div class="news-list">
+                            <div class="news-item">
+                                <div class="news-date">2023.7.12</div>
+                                <div class="news-content">
+                                    <h3>着力推动文旅产业数字化建设加快发展</h3>
+                                    <a href="https://www.srdice.net/?m=home&c=View&a=index&aid=3259" class="news-more" target="_blank">阅读全文</a>
+                                </div>
+                            </div>
+                            <div class="news-item">
+                                <div class="news-date">2023.6.27</div>
+                                <div class="news-content">
+                                    <h3>"缘起丝路"敦煌疏勒河古道徒步活动在香港启动实验室与华为公司签署战略合作协议</h3>
+                                    <a href="https://www.thepaper.cn/newsDetail_forward_23635925" class="news-more" target="_blank">阅读全文</a>
+                                </div>
+                            </div>
+                            <div class="news-item">
+                                <div class="news-date">2023.5.18</div>
+                                <div class="news-content">
+                                    <h3>"甘肃省文化和旅游厅打造"一平台、一中心、三体系、三朵云"促进文旅与科技深度融合"</h3>
+                                    <a href="https://www.mct.gov.cn/whzx/qgwhxxlb/gs/202305/t20230518_943844.htm" class="news-more" target="_blank">阅读全文</a>
+                                </div>
+                            </div>
+                            <div class="news-item">
+                                <div class="news-date">2023.5.13</div>
+                                <div class="news-content">
+                                    <h3>甘肃省文旅厅与中文在线座谈对接工作</h3>
+                                    <a href="https://mp.weixin.qq.com/s/UHSh1CK7li5nsjFYaJJ4Ow" class="news-more" target="_blank">阅读全文</a>
+                                </div>
+                            </div>
+                            <div class="news-item">
+                                <div class="news-date">2023.4.28</div>
+                                <div class="news-content">
+                                    <h3>【甘快看】为甘肃文旅产业提质增效转型升级提供"数字动能"</h3>
+                                    <a href="https://gansu.gscn.com.cn/system/2023/04/28/012950817.shtml" class="news-more" target="_blank">阅读全文</a>
+                                </div>
+                            </div>
+                            <div class="news-item">
+                                <div class="news-date">2023.4.28</div>
+                                <div class="news-content">
+                                    <h3>为甘肃文旅产业高质量发展提供数字动能——省文旅厅与10个网络平台签订合作协议</h3>
+                                    <a href="https://www.gswbj.gov.cn/a/2023/04/28/17107.html" class="news-more" target="_blank">阅读全文</a>
+                                </div>
+                            </div>
+                            <div class="news-item">
+                                <div class="news-date">2023.3.17</div>
+                                <div class="news-content">
+                                    <h3>国家信息中心调研甘肃数字文旅建设工作</h3>
+                                    <a href="https://mp.weixin.qq.com/s/eFBcwY4TEVK5VqJ-x7HDaQ" class="news-more" target="_blank">阅读全文</a>
+                                </div>
+                            </div>
+                            <div class="news-item">
+                                <div class="news-date">2023.3.16</div>
+                                <div class="news-content">
+                                    <h3>甘肃省文旅厅与支付宝座谈对接工作</h3>
+                                    <a href="https://mp.weixin.qq.com/s/Rh-mna59Wsmnu3PuLoBjYQ" class="news-more" target="_blank">阅读全文</a>
+                                </div>
+                            </div>
+                            <div class="news-item">
+                                <div class="news-date">2023.3.1</div>
+                                <div class="news-content">
+                                    <h3>中国旅游研究院重大项目课题组到甘肃调研</h3>
+                                    <a href="https://www.mct.gov.cn/whzx/qgwhxxlb/gs/202303/t20230301_939431.htm" class="news-more" target="_blank">阅读全文</a>
+                                </div>
+                            </div>
+                            <div class="news-item">
+                                <div class="news-date">2023.2.8</div>
+                                <div class="news-content">
+                                    <h3>甘肃省文旅厅与同程旅行座谈对接工作</h3>
+                                    <a href="https://mp.weixin.qq.com/s/pkyvhtGgEnEudOqtdVRVAA" class="news-more" target="_blank">阅读全文</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <h3>大型语言模型</h3>
-                    <p>探索大规模语言模型的训练、优化与应用，推动通用人工智能发展</p>
-                </div>
-                <div class="area-card">
-                    <div class="area-icon">
-                        <i class="fas fa-camera"></i>
-                    </div>
-                    <h3>图像识别</h3>
-                    <p>开发先进的图像理解算法，解决计算机视觉领域关键挑战</p>
-                </div>
-                <div class="area-card">
-                    <div class="area-icon">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <h3>大数据分析</h3>
-                    <p>研究高效数据处理与分析技术，从海量数据中提取有价值的信息</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="highlight-publications">
-        <div class="container">
-            <h2 class="section-title">研究亮点</h2>
-            <div class="slider-container">
-                <div class="publication-slider">
-                    <div class="publication-card">
-                        <h3>基于注意力机制的多模态大模型架构</h3>
-                        <p class="authors">李明, 张华, 王强, 等</p>
-                        <p class="venue">CVPR 2024</p>
-                        <div class="pub-links">
-                            <a href="#" class="btn btn-sm">PDF</a>
-                            <a href="#" class="btn btn-sm">Code</a>
-                            <a href="#" class="btn btn-sm">BibTeX</a>
-                        </div>
-                    </div>
-                    <div class="publication-card">
-                        <h3>面向超大规模图数据的分布式处理系统</h3>
-                        <p class="authors">陈伟, 刘芳, 等</p>
-                        <p class="venue">VLDB 2023</p>
-                        <div class="pub-links">
-                            <a href="#" class="btn btn-sm">PDF</a>
-                            <a href="#" class="btn btn-sm">Code</a>
-                            <a href="#" class="btn btn-sm">BibTeX</a>
-                        </div>
-                    </div>
-                    <div class="publication-card">
-                        <h3>高效低功耗深度学习推理加速器设计</h3>
-                        <p class="authors">赵明, 王丽, 等</p>
-                        <p class="venue">MICRO 2023</p>
-                        <div class="pub-links">
-                            <a href="#" class="btn btn-sm">PDF</a>
-                            <a href="#" class="btn btn-sm">Code</a>
-                            <a href="#" class="btn btn-sm">BibTeX</a>
-                        </div>
-                    </div>
-                    <div class="publication-card">
-                        <h3>智能医疗影像分析关键技术研究</h3>
-                        <p class="authors">张雪, 吴强, 等</p>
-                        <p class="venue">Nature Medicine 2023</p>
-                        <div class="pub-links">
-                            <a href="#" class="btn btn-sm">PDF</a>
-                            <a href="#" class="btn btn-sm">Code</a>
-                            <a href="#" class="btn btn-sm">BibTeX</a>
-                        </div>
-                    </div>
-                    <div class="publication-card">
-                        <h3>大规模分布式异构系统协同优化</h3>
-                        <p class="authors">王晨, 刘洋, 等</p>
-                        <p class="venue">OSDI 2023</p>
-                        <div class="pub-links">
-                            <a href="#" class="btn btn-sm">PDF</a>
-                            <a href="#" class="btn btn-sm">Code</a>
-                            <a href="#" class="btn btn-sm">BibTeX</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="slider-controls">
-                    <button class="slider-prev"><i class="fas fa-chevron-left"></i></button>
-                    <button class="slider-next"><i class="fas fa-chevron-right"></i></button>
-                </div>
-            </div>
-            <div class="view-all-container">
-                <a href="publications.html" class="view-all-btn">查看全部论文</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="lab-gallery">
-        <div class="container">
-            <h2 class="section-title">实验室风采</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="images/lab-team.jpg" alt="团队合影">
-                    <div class="gallery-caption">团队年度合影</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/lab-workshop.jpg" alt="学术研讨会">
-                    <div class="gallery-caption">学术研讨会</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/lab-equipment.jpg" alt="实验设备">
-                    <div class="gallery-caption">先进研究设备</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/lab-collaboration.jpg" alt="企业合作">
-                    <div class="gallery-caption">产学研合作交流</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="news">
-        <div class="container">
-            <h2 class="section-title">新闻动态</h2>
-            <div class="news-list">
-                <div class="news-item">
-                    <div class="news-date">2024-05-15</div>
-                    <div class="news-content">
-                        <h3>恭喜我们的研究团队在CVPR 2024发表两篇论文</h3>
-                        <p>团队成员李明和王强在计算机视觉顶会CVPR 2024上发表了两篇重要研究成果。</p>
-                        <a href="#" class="read-more">阅读更多</a>
-                    </div>
-                </div>
-                <div class="news-item">
-                    <div class="news-date">2024-04-20</div>
-                    <div class="news-content">
-                        <h3>实验室与华为达成战略合作</h3>
-                        <p>我们与华为公司达成了人工智能基础研究的战略合作，共同推进大模型技术创新。</p>
-                        <a href="#" class="read-more">阅读更多</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="contact-info">
-        <div class="container">
-            <div class="contact-grid">
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <h3>地址</h3>
-                    <p>兰州大学计算机科学与技术学院 A栋3层</p>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <h3>邮箱</h3>
-                    <p>contact@lab-website.edu.cn</p>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <h3>电话</h3>
-                    <p>+86 123 4567 8901</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <style>
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .left-column {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .notice-board,
+        .academic-activities,
+        .news-board {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+        
+        .board-title {
+            background-color: var(--primary-color);
+            color: white;
+            margin: 0;
+            padding: 15px 20px;
+            font-size: 1.4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .notice-list {
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .notice-item {
+            display: flex;
+            margin-bottom: 0;
+            padding: 0;
+            border-bottom: none;
+            background-color: #fff;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.03);
+            transition: transform 0.2s ease;
+            height: auto;
+            min-height: 60px;
+        }
+        
+        .notice-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+        
+        .notice-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .notice-date {
+            background-color: #f5f5f5;
+            color: #0056b3;
+            font-size: 1rem;
+            font-weight: bold;
+            text-align: center;
+            width: 90px;
+            min-width: 90px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 6px 0 0 6px;
+        }
+        
+        .notice-content {
+            flex: 1;
+            padding: 12px 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .notice-content h3 {
+            font-size: 0.95rem;
+            margin: 0;
+            color: #333;
+            line-height: 1.4;
+            white-space: normal;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            height: auto;
+        }
+        
+        .notice-content p {
+            display: none;
+        }
+        
+        .notice-more {
+            display: none;
+        }
+        
+        .activity-item {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .activity-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .activity-date {
+            white-space: nowrap;
+            min-width: 95px;
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 10px;
+            margin-right: 15px;
+        }
+        
+        .activity-content h3 {
+            margin: 0;
+            font-size: 0.95rem;
+            white-space: normal;
+            overflow: hidden;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+        
+        .activity-more {
+            display: inline-block;
+            margin-top: 10px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .activity-more:hover {
+            text-decoration: underline;
+        }
+        
+        .activity-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .simple-activity {
+            display: flex;
+            align-items: flex-start;
+            padding: 10px 15px;
+            margin-bottom: 0;
+            border-bottom: 1px solid #f0f0f0;
+            min-height: 50px;
+            height: auto;
+            box-sizing: border-box;
+        }
+        
+        .simple-activity:last-child {
+            border-bottom: none;
+        }
+        
+        .simple-activity .activity-date {
+            margin-bottom: 0;
+            margin-right: 15px;
+            min-width: 80px;
+        }
+        
+        .simple-activity .activity-content {
+            flex: 1;
+        }
+        
+        .simple-activity .activity-content h3 {
+            margin: 0;
+            font-size: 0.95rem;
+            white-space: normal;
+            overflow: hidden;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+        
+        .simple-activity .activity-content p,
+        .simple-activity .activity-more {
+            display: none;
+        }
+        
+        .featured-activity {
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        
+        .featured-activity-container {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .featured-activity-image {
+            flex: 0 0 40%;
+        }
+        
+        .featured-activity-info {
+            flex: 1;
+        }
+        
+        .activity-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .activity-list {
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+        
+        .news-list, .activity-list {
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .academic-activities, .news-board {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        
+        .left-column, .right-column {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .notice-board {
+            margin-bottom: 30px;
+            flex: 0 0 auto;
+        }
+        
+        .academic-activities {
+            flex: 1 1 auto;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .news-item {
+            display: flex;
+            padding: 15px;
+            margin-bottom: 0;
+            border-bottom: 1px solid #eee;
+            transition: background-color 0.2s ease;
+        }
+        
+        .news-item:hover {
+            background-color: #f9f9f9;
+        }
+        
+        .news-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 15px;
+            border-bottom: none;
+        }
+        
+        .news-date {
+            flex: 0 0 90px;
+            color: var(--primary-color);
+            font-weight: 500;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+        
+        .news-content {
+            flex: 1;
+        }
+        
+        .news-content h3 {
+            font-size: 1.05rem;
+            margin: 0 0 10px 0;
+            color: #333;
+            line-height: 1.4;
+        }
+        
+        .news-content p {
+            margin: 8px 0;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #555;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .news-more {
+            display: inline-block;
+            margin-top: 0;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        
+        .news-more:hover {
+            text-decoration: underline;
+        }
+        
+        .more-link {
+            text-align: right;
+            padding: 10px 20px;
+            border-top: 1px solid #eee;
+            display: none;
+        }
+        
+        .more-link-top {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: normal;
+            transition: opacity 0.2s ease;
+        }
+        
+        .more-link-top:hover {
+            opacity: 0.8;
+        }
+        
+        .more-link-top i {
+            margin-left: 5px;
+            font-size: 0.8rem;
+        }
+        
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .notice-title-link {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        .notice-title-link:hover {
+            color: var(--primary-color);
+        }
+    </style>
 
     <footer>
         <div class="container">
@@ -227,10 +637,9 @@
                         <h4>导航</h4>
                         <ul>
                             <li><a href="index.html">首页</a></li>
+                            <li><a href="lab-intro.html">实验室介绍</a></li>
                             <li><a href="people.html">团队成员</a></li>
-                            <li><a href="publications.html">论文发表</a></li>
                             <li><a href="projects.html">研究项目</a></li>
-                            <li><a href="others.html">其他</a></li>
                         </ul>
                     </div>
                     <div class="link-group">

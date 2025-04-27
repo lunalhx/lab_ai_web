@@ -1,5 +1,29 @@
 // 研究亮点滑块控制
 document.addEventListener('DOMContentLoaded', function() {
+    // 团队成员筛选功能
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const peopleCards = document.querySelectorAll('.people-card');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // 移除所有按钮的active类
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            // 为当前点击的按钮添加active类
+            button.classList.add('active');
+
+            const filter = button.getAttribute('data-filter');
+
+            peopleCards.forEach(card => {
+                if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+
+    // 研究亮点滑块控制
     const slider = document.querySelector('.publication-slider');
     const prevBtn = document.querySelector('.slider-prev');
     const nextBtn = document.querySelector('.slider-next');

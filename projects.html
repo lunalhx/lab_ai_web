@@ -7,6 +7,195 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="projects.css">
+    <style>
+        /* 项目页面特有的样式 */
+        .project-card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-content {
+            padding: 2rem;
+        }
+        
+        .project-status {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.25rem 0.75rem;
+            font-size: 0.85rem;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+        
+        .ongoing {
+            background-color: var(--primary-light);
+            color: var(--primary-dark);
+        }
+        
+        .completed {
+            background-color: #d1e7dd;
+            color: #146c43;
+        }
+        
+        .project-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+            line-height: 1.4;
+        }
+        
+        .project-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .project-meta p {
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .project-meta i {
+            margin-right: 8px;
+            color: var(--primary-color);
+        }
+        
+        .project-description {
+            background-color: #f9f9f9;
+            padding: 1.2rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            border-left: 3px solid var(--primary-light);
+        }
+        
+        .project-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .project-pi, .project-outputs {
+            padding: 1rem;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        
+        .project-pi h4, .project-outputs h4 {
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            border-bottom: 1px solid var(--primary-light);
+            padding-bottom: 0.5rem;
+        }
+        
+        .project-pi p {
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-outputs ul {
+            padding-left: 1.5rem;
+            margin-top: 0.5rem;
+            margin-bottom: 0;
+        }
+        
+        .project-outputs li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            background-color: var(--primary-light);
+            border-radius: 4px;
+            color: var(--primary-dark);
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .project-link:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .project-link i {
+            margin-right: 0.5rem;
+        }
+        
+        .projects-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--secondary-light);
+        }
+        
+        .projects-tab {
+            padding: 1rem 2rem;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--text-medium);
+            position: relative;
+            transition: color 0.2s ease;
+        }
+        
+        .projects-tab.active {
+            color: var(--primary-color);
+        }
+        
+        .projects-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        .projects-tab:hover {
+            color: var(--primary-color);
+        }
+        
+        .project-count {
+            display: inline-block;
+            background-color: var(--secondary-light);
+            color: var(--secondary-dark);
+            border-radius: 20px;
+            padding: 0.2rem 0.6rem;
+            font-size: 0.8rem;
+            margin-left: 0.5rem;
+        }
+        
+        .active .project-count {
+            background-color: var(--primary-light);
+            color: var(--primary-dark);
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -20,10 +209,44 @@
             <nav>
                 <ul>
                     <li><a href="index.html">首页</a></li>
-                    <li><a href="people.html">团队成员</a></li>
-                    <li><a href="publications.html">论文发表</a></li>
-                    <li><a href="projects.html" class="active">研究项目</a></li>
-                    <li><a href="others.html">其他</a></li>
+                    <li class="dropdown">
+                        <a href="lab-intro.html">实验室介绍</a>
+                        <div class="dropdown-content">
+                            <a href="#" class="lab-structure">实验室结构</a>
+                            <div class="sub-dropdown key-labs">
+                                <a href="key-lab-culture.html">文旅重点实验室</a>
+                                <a href="key-lab-ai.html">人工智能与算力技术重点实验室</a>
+                            </div>
+                            <a href="committee.html">标委会</a>
+                            <a href="society.html">AI探索者联盟社团</a>
+                            <a href="academic-committee.html">学术委员会</a>
+                            <a href="leaders.html">现任领导</a>
+                            <a href="contact.html">联系我们</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="organization.html">机构设置</a>
+                        <div class="dropdown-content">
+                            <a href="lab-structure.html">实验室结构</a>
+                            <a href="instruments.html">平台仪器</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="people.html">团队成员</a>
+                        <div class="dropdown-content">
+                            <a href="people.html" class="filter-btn" data-filter="teachers">教师队伍</a>
+                            <a href="people.html" class="filter-btn" data-filter="students">学生队伍</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="projects.html" class="active">研究项目</a>
+                        <div class="dropdown-content">
+                            <a href="#national" class="filter-btn" data-filter="national">国家级项目</a>
+                            <a href="#provincial" class="filter-btn" data-filter="provincial">省部级项目</a>
+                            <a href="#enterprise" class="filter-btn" data-filter="enterprise">企业合作项目</a>
+                            <a href="#international" class="filter-btn" data-filter="international">国际合作项目</a>
+                        </div>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -32,301 +255,277 @@
     <section class="projects-hero hero-section">
         <div class="container">
             <h1 class="page-title">研究项目</h1>
-            <p class="page-subtitle">我们致力于计算机科学与人工智能领域具有前沿性和挑战性的研究项目</p>
-        </div>
-    </section>
-
-    <section class="projects-filter">
-        <div class="container">
-            <div class="filter-buttons">
-                <button class="filter-btn active" data-filter="all">全部项目</button>
-                <button class="filter-btn" data-filter="national">国家级项目</button>
-                <button class="filter-btn" data-filter="enterprise">企业合作项目</button>
-                <button class="filter-btn" data-filter="international">国际合作项目</button>
-                <button class="filter-btn" data-filter="ongoing">进行中项目</button>
-                <button class="filter-btn" data-filter="completed">已完成项目</button>
-            </div>
+            <p class="page-subtitle">我们致力于文化旅游与人工智能领域具有前沿性和挑战性的研究项目</p>
         </div>
     </section>
 
     <section class="projects-list">
         <div class="container">
+            <div class="projects-tabs">
+                <button class="projects-tab active" data-target="national-projects">国家级项目 <span class="project-count">2</span></button>
+                <button class="projects-tab" data-target="provincial-projects">省部级项目 <span class="project-count">5</span></button>
+                <button class="projects-tab" data-target="enterprise-projects">企业合作项目 <span class="project-count">3</span></button>
+                <button class="projects-tab" data-target="international-projects">国际合作项目 <span class="project-count">1</span></button>
+            </div>
+            
             <div class="projects-category" id="national-projects">
-                <h2 class="category-title">国家级项目</h2>
-                <div class="projects-grid">
-                    <div class="project-card national ongoing" data-category="national ongoing">
-                        <div class="project-status">进行中</div>
-                        <div class="project-image">
-                            <img src="images/projects/project1.jpg" alt="大规模分布式图计算系统">
+                <div class="project-card national ongoing" data-category="national ongoing">
+                    <div class="project-status ongoing">进行中</div>
+                    <div class="project-content">
+                        <h3 class="project-title">科技创新2030-"新一代人工智能"重大项目</h3>
+                        <div class="project-meta">
+                            <p class="project-time"><i class="far fa-calendar-alt"></i> 2023.01 - 2024.11</p>
+                            <p class="project-type"><i class="fas fa-award"></i> 国家重点研发计划</p>
                         </div>
-                        <div class="project-content">
-                            <h3 class="project-title">大规模分布式图计算系统研究与应用</h3>
-                            <div class="project-meta">
-                                <p class="project-time"><i class="far fa-calendar-alt"></i> 2023.01 - 2026.12</p>
-                                <p class="project-type"><i class="fas fa-award"></i> 国家自然科学基金重点项目</p>
-                            </div>
-                            <p class="project-description">针对万亿级图数据处理中的效率和扩展性挑战，研究高效的分布式图计算系统架构与算法，支持复杂图分析任务，实现超大规模图数据的高效处理与挖掘。</p>
+                        <div class="project-description">
+                            <p>面向节假日城市旅游客流调控和智能服务支撑平台及示范，包含课题5"面向节假日城市旅游客流调控和智能服务的应用示范"，课题1子课题1-4"节假日城市旅游客流管控与疏导关键指标研究及标准研编"，课题4子课题4-7"城市旅游客流调控和智能服务平台系统的工程化测试与调优"。目前项目进入验收阶段。</p>
+                        </div>
+                        <div class="project-details">
                             <div class="project-pi">
-                                <p><strong>项目负责人：</strong> 张伟 教授</p>
-                                <p><strong>经费：</strong> 350万元</p>
+                                <h4><i class="fas fa-user-tie"></i> 项目信息</h4>
+                                <p><strong>参与单位：</strong> 旅游信息融合处理与数据权属保护文化和旅游部重点实验室</p>
                             </div>
                             <div class="project-outputs">
-                                <p><strong>研究成果：</strong></p>
+                                <h4><i class="fas fa-tasks"></i> 阶段成果</h4>
                                 <ul>
-                                    <li>面向超大规模图数据的分布式处理系统（TPAMI 2023）</li>
-                                    <li>高效分布式图数据库系统设计与优化（SIGMOD 2022）</li>
-                                    <li>已申请专利3项，授权2项</li>
+                                    <li>在张掖、天水、安徽芜湖三个城市六个景区开展试点项目</li>
+                                    <li>对试点景区旅游热度、旅游密度、客流饱和度和客流风险进行预测和监测</li>
+                                    <li>收集试点期间各试点单位3.74G照片和视频数据</li>
+                                    <li>形成了从指标、数据、算法、集成到示范的数据通路和业务流程</li>
                                 </ul>
-                            </div>
-                            <div class="project-links">
-                                <a href="#" class="project-link"><i class="fas fa-link"></i> 项目主页</a>
-                                <a href="#" class="project-link"><i class="fab fa-github"></i> 开源代码</a>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <div class="project-card national ongoing" data-category="national ongoing">
-                        <div class="project-status">进行中</div>
-                        <div class="project-image">
-                            <img src="images/projects/project2.jpg" alt="大模型优化">
+                <div class="project-card national completed" data-category="national completed">
+                    <div class="project-status completed">已完成</div>
+                    <div class="project-content">
+                        <h3 class="project-title">基于概率近似正确理论的旅游大数据分析研究与应用</h3>
+                        <div class="project-meta">
+                            <p class="project-time"><i class="far fa-calendar-alt"></i> 2019 - 2023.09</p>
+                            <p class="project-type"><i class="fas fa-award"></i> 甘肃省重点研发计划</p>
                         </div>
-                        <div class="project-content">
-                            <h3 class="project-title">大规模预训练模型高效训练与推理关键技术研究</h3>
-                            <div class="project-meta">
-                                <p class="project-time"><i class="far fa-calendar-alt"></i> 2022.07 - 2025.06</p>
-                                <p class="project-type"><i class="fas fa-award"></i> 国家重点研发计划</p>
-                            </div>
-                            <p class="project-description">研究大规模预训练模型的高效训练与推理技术，包括分布式训练算法优化、梯度压缩、混合精度计算、动态稀疏化等，大幅提升模型训练与推理效率。</p>
+                        <div class="project-description">
+                            <p>研究基于概率近似正确理论的旅游大数据分析方法，应用于旅游行业数据处理与分析。项目于2023年9月顺利通过验收。</p>
+                        </div>
+                        <div class="project-details">
                             <div class="project-pi">
-                                <p><strong>项目负责人：</strong> 王丽 副教授</p>
-                                <p><strong>经费：</strong> 280万元</p>
+                                <h4><i class="fas fa-user-tie"></i> 项目信息</h4>
+                                <p><strong>项目负责人：</strong> 杨裔 教授</p>
                             </div>
                             <div class="project-outputs">
-                                <p><strong>研究成果：</strong></p>
+                                <h4><i class="fas fa-tasks"></i> 研究成果</h4>
                                 <ul>
-                                    <li>大规模语言模型训练的高效梯度压缩与通信策略（ICLR 2024）</li>
-                                    <li>TransformerTurbo：面向大规模语言模型推理的高性能引擎（NeurIPS 2023）</li>
+                                    <li>开发了多项基于概率理论的旅游大数据分析模型</li>
+                                    <li>构建了旅游数据分析系统</li>
+                                    <li>成果已成功应用于甘肃省旅游大数据分析</li>
                                 </ul>
-                            </div>
-                            <div class="project-links">
-                                <a href="#" class="project-link"><i class="fas fa-link"></i> 项目主页</a>
-                                <a href="#" class="project-link"><i class="fab fa-github"></i> 开源代码</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-card national completed" data-category="national completed">
-                        <div class="project-status completed">已完成</div>
-                        <div class="project-image">
-                            <img src="images/projects/project3.jpg" alt="自监督学习">
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">面向视觉任务的自监督表征学习方法研究</h3>
-                            <div class="project-meta">
-                                <p class="project-time"><i class="far fa-calendar-alt"></i> 2020.01 - 2022.12</p>
-                                <p class="project-type"><i class="fas fa-award"></i> 国家自然科学基金面上项目</p>
-                            </div>
-                            <p class="project-description">研究如何从无标注数据中学习高质量的视觉表征，解决监督学习中标注成本高、泛化性差等问题，提出了基于对比学习和自监督预训练的新方法。</p>
-                            <div class="project-pi">
-                                <p><strong>项目负责人：</strong> 李明 副教授</p>
-                                <p><strong>经费：</strong> 85万元</p>
-                            </div>
-                            <div class="project-outputs">
-                                <p><strong>研究成果：</strong></p>
-                                <ul>
-                                    <li>自监督视觉表征学习的对比学习方法（ECCV 2022）</li>
-                                    <li>基于注意力机制的多模态大模型架构（CVPR 2024）</li>
-                                    <li>已申请专利2项，授权1项</li>
-                                </ul>
-                            </div>
-                            <div class="project-links">
-                                <a href="#" class="project-link"><i class="fas fa-link"></i> 项目主页</a>
-                                <a href="#" class="project-link"><i class="fas fa-file-alt"></i> 结题报告</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="projects-category" id="enterprise-projects">
-                <h2 class="category-title">企业合作项目</h2>
-                <div class="projects-grid">
-                    <div class="project-card enterprise ongoing" data-category="enterprise ongoing">
-                        <div class="project-status">进行中</div>
-                        <div class="project-image">
-                            <img src="images/projects/project4.jpg" alt="华为合作项目">
+            
+            <div class="projects-category" id="provincial-projects" style="display: none;">
+                <div class="project-card provincial ongoing" data-category="provincial ongoing">
+                    <div class="project-status ongoing">进行中</div>
+                    <div class="project-content">
+                        <h3 class="project-title">基于国产分布式异构智能算力平台的垂直领域生成式人工智能研究与示范</h3>
+                        <div class="project-meta">
+                            <p class="project-time"><i class="far fa-calendar-alt"></i> 2024.04 - 至今</p>
+                            <p class="project-type"><i class="fas fa-award"></i> 甘肃省科技重大专项项目</p>
                         </div>
-                        <div class="project-content">
-                            <h3 class="project-title">大模型知识增强与领域适应关键技术研究</h3>
-                            <div class="project-meta">
-                                <p class="project-time"><i class="far fa-calendar-alt"></i> 2023.09 - 2025.08</p>
-                                <p class="project-type"><i class="fas fa-building"></i> 华为公司委托项目</p>
-                            </div>
-                            <p class="project-description">研究如何将领域知识高效注入大模型，提升特定行业场景下的理解能力和专业性，降低幻觉问题，实现领域大模型的快速适应与迭代优化。</p>
+                        <div class="project-description">
+                            <p>研究基于国产分布式异构智能算力平台的垂直领域生成式人工智能技术，开展相关示范应用。该项目于2024年4月申报。</p>
+                        </div>
+                        <div class="project-details">
                             <div class="project-pi">
-                                <p><strong>项目负责人：</strong> 王丽 副教授</p>
-                                <p><strong>经费：</strong> 200万元</p>
-                            </div>
-                            <div class="project-outputs">
-                                <p><strong>阶段成果：</strong></p>
-                                <ul>
-                                    <li>构建了领域知识图谱增强的大模型推理框架</li>
-                                    <li>在医疗、金融等行业场景验证，专业能力显著提升</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-card enterprise ongoing" data-category="enterprise ongoing">
-                        <div class="project-status">进行中</div>
-                        <div class="project-image">
-                            <img src="images/projects/project5.jpg" alt="阿里合作项目">
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">面向电商的多模态推荐系统研究</h3>
-                            <div class="project-meta">
-                                <p class="project-time"><i class="far fa-calendar-alt"></i> 2023.06 - 2025.05</p>
-                                <p class="project-type"><i class="fas fa-building"></i> 阿里巴巴委托项目</p>
-                            </div>
-                            <p class="project-description">研究利用商品图文信息与用户行为数据，构建高效的多模态推荐模型，提升电商平台推荐系统的准确性、多样性与用户体验。</p>
-                            <div class="project-pi">
-                                <p><strong>项目负责人：</strong> 孙婷 博士研究生</p>
-                                <p><strong>指导教师：</strong> 王丽 副教授</p>
-                                <p><strong>经费：</strong> 120万元</p>
-                            </div>
-                            <div class="project-outputs">
-                                <p><strong>阶段成果：</strong></p>
-                                <ul>
-                                    <li>基于图神经网络的跨领域推荐算法研究（TNNLS 2023）</li>
-                                    <li>在线A/B测试显示点击率提升8.5%，转化率提升5.2%</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-card enterprise completed" data-category="enterprise completed">
-                        <div class="project-status completed">已完成</div>
-                        <div class="project-image">
-                            <img src="images/projects/project6.jpg" alt="英特尔合作项目">
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">边缘计算场景下的深度学习模型优化</h3>
-                            <div class="project-meta">
-                                <p class="project-time"><i class="far fa-calendar-alt"></i> 2021.03 - 2022.09</p>
-                                <p class="project-type"><i class="fas fa-building"></i> 英特尔公司委托项目</p>
-                            </div>
-                            <p class="project-description">研究面向资源受限设备的深度学习模型压缩、量化与硬件加速技术，实现复杂AI模型在边缘设备上的高效运行。</p>
-                            <div class="project-pi">
-                                <p><strong>项目负责人：</strong> 李建华 硕士研究生</p>
-                                <p><strong>指导教师：</strong> 陈强 兼职教授</p>
-                                <p><strong>经费：</strong> 90万元</p>
-                            </div>
-                            <div class="project-outputs">
-                                <p><strong>研究成果：</strong></p>
-                                <ul>
-                                    <li>面向物联网的轻量级边缘智能计算框架（TOSN 2022）</li>
-                                    <li>开发了支持多种边缘设备的优化工具链，已开源</li>
-                                </ul>
-                            </div>
-                            <div class="project-links">
-                                <a href="#" class="project-link"><i class="fab fa-github"></i> 开源代码</a>
-                                <a href="#" class="project-link"><i class="fas fa-file-alt"></i> 技术报告</a>
+                                <h4><i class="fas fa-user-tie"></i> 项目信息</h4>
+                                <p><strong>项目负责人：</strong> 杨裔 教授</p>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="projects-category" id="international-projects">
-                <h2 class="category-title">国际合作项目</h2>
-                <div class="projects-grid">
-                    <div class="project-card international ongoing" data-category="international ongoing">
-                        <div class="project-status">进行中</div>
-                        <div class="project-image">
-                            <img src="images/projects/project7.jpg" alt="国际合作项目">
+                <div class="project-card provincial completed" data-category="provincial completed">
+                    <div class="project-status completed">已完成</div>
+                    <div class="project-content">
+                        <h3 class="project-title">大数据背景下数据安全及个人隐私保护研究</h3>
+                        <div class="project-meta">
+                            <p class="project-time"><i class="far fa-calendar-alt"></i> 2023 - 2024.06</p>
+                            <p class="project-type"><i class="fas fa-award"></i> 甘肃省委组织部2023省级重点人才项目</p>
                         </div>
-                        <div class="project-content">
-                            <h3 class="project-title">面向科学计算的大规模异构并行计算框架</h3>
-                            <div class="project-meta">
-                                <p class="project-time"><i class="far fa-calendar-alt"></i> 2023.10 - 2026.09</p>
-                                <p class="project-type"><i class="fas fa-globe"></i> 中美联合研究项目</p>
-                            </div>
-                            <p class="project-description">与美国卡内基梅隆大学联合研发面向大规模科学计算的异构并行计算框架，支持多种硬件平台，高效处理气候模拟、分子动力学等计算密集型应用。</p>
+                        <div class="project-description">
+                            <p>研究大数据环境下的数据安全和个人隐私保护技术与方法，项目于2024年6月顺利通过验收。</p>
+                        </div>
+                        <div class="project-details">
                             <div class="project-pi">
-                                <p><strong>项目负责人（中方）：</strong> 张伟 教授</p>
-                                <p><strong>项目负责人（美方）：</strong> John Smith 教授</p>
-                                <p><strong>经费：</strong> 180万元（中方）</p>
-                            </div>
-                            <div class="project-outputs">
-                                <p><strong>阶段成果：</strong></p>
-                                <ul>
-                                    <li>设计了适应多种硬件平台的统一计算抽象</li>
-                                    <li>实现了针对GPU集群的高效负载均衡策略</li>
-                                </ul>
-                            </div>
-                            <div class="project-links">
-                                <a href="#" class="project-link"><i class="fas fa-link"></i> 项目主页</a>
+                                <h4><i class="fas fa-user-tie"></i> 项目信息</h4>
+                                <p><strong>项目负责人：</strong> 杨裔 教授</p>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <div class="project-card international completed" data-category="international completed">
-                        <div class="project-status completed">已完成</div>
-                        <div class="project-image">
-                            <img src="images/projects/project8.jpg" alt="国际合作项目">
+                <div class="project-card provincial completed" data-category="provincial completed">
+                    <div class="project-status completed">已完成</div>
+                    <div class="project-content">
+                        <h3 class="project-title">全省重点旅游景区智慧化建设项目建议书编制服务项目</h3>
+                        <div class="project-meta">
+                            <p class="project-time"><i class="far fa-calendar-alt"></i> 2022 - 2023.03</p>
+                            <p class="project-type"><i class="fas fa-award"></i> 甘肃省文化和旅游厅项目</p>
                         </div>
-                        <div class="project-content">
-                            <h3 class="project-title">隐私保护的联邦学习技术研究</h3>
-                            <div class="project-meta">
-                                <p class="project-time"><i class="far fa-calendar-alt"></i> 2020.05 - 2022.04</p>
-                                <p class="project-type"><i class="fas fa-globe"></i> 中欧联合研究项目</p>
-                            </div>
-                            <p class="project-description">与瑞士洛桑联邦理工学院合作研究保护用户隐私的联邦学习技术，突破数据孤岛限制，实现多方安全协作训练AI模型。</p>
+                        <div class="project-description">
+                            <p>为全省重点旅游景区智慧化建设提供项目建议书编制服务，该项目于2023年3月顺利通过验收。</p>
+                        </div>
+                        <div class="project-details">
                             <div class="project-pi">
-                                <p><strong>项目负责人（中方）：</strong> 赵芳 兼职教授</p>
-                                <p><strong>项目负责人（欧方）：</strong> Maria Schmidt 教授</p>
-                                <p><strong>经费：</strong> 120万元（中方）</p>
+                                <h4><i class="fas fa-user-tie"></i> 项目信息</h4>
+                                <p><strong>主持单位：</strong> 旅游信息融合处理与数据权属保护文化和旅游部重点实验室</p>
                             </div>
-                            <div class="project-outputs">
-                                <p><strong>研究成果：</strong></p>
-                                <ul>
-                                    <li>提出了安全聚合的联邦学习算法，显著降低隐私泄露风险</li>
-                                    <li>在多家医疗机构验证，实现不共享原始数据的协作诊断模型训练</li>
-                                </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card provincial completed" data-category="provincial completed">
+                    <div class="project-status completed">已完成</div>
+                    <div class="project-content">
+                        <h3 class="project-title">甘肃省"十四五"网络安全规划技术服务</h3>
+                        <div class="project-meta">
+                            <p class="project-time"><i class="far fa-calendar-alt"></i> 2022 - 2023.06</p>
+                            <p class="project-type"><i class="fas fa-award"></i> 甘肃省政府委托项目</p>
+                        </div>
+                        <div class="project-description">
+                            <p>为甘肃省"十四五"网络安全规划提供技术服务，项目于2023年6月顺利通过验收。</p>
+                        </div>
+                        <div class="project-details">
+                            <div class="project-pi">
+                                <h4><i class="fas fa-user-tie"></i> 项目信息</h4>
+                                <p><strong>项目负责人：</strong> 杨裔 教授</p>
                             </div>
-                            <div class="project-links">
-                                <a href="#" class="project-link"><i class="fas fa-file-alt"></i> 研究报告</a>
-                                <a href="#" class="project-link"><i class="fab fa-github"></i> 开源实现</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card provincial completed" data-category="provincial completed">
+                    <div class="project-status completed">已完成</div>
+                    <div class="project-content">
+                        <h3 class="project-title">旅游大数据关键技术研究和应用</h3>
+                        <div class="project-meta">
+                            <p class="project-time"><i class="far fa-calendar-alt"></i> 2021 - 2023.10</p>
+                            <p class="project-type"><i class="fas fa-award"></i> 兰州市人才创新创业项目</p>
+                        </div>
+                        <div class="project-description">
+                            <p>研究旅游大数据关键技术并进行实际应用，项目于2023年10月顺利通过验收。</p>
+                        </div>
+                        <div class="project-details">
+                            <div class="project-pi">
+                                <h4><i class="fas fa-user-tie"></i> 项目信息</h4>
+                                <p><strong>项目负责人：</strong> 杨裔 教授</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+            
+            <div class="projects-category" id="enterprise-projects" style="display: none;">
+                <div class="project-card enterprise completed" data-category="enterprise completed">
+                    <div class="project-status completed">已完成</div>
+                    <div class="project-content">
+                        <h3 class="project-title">风电并网管理系统中的关键问题研究</h3>
+                        <div class="project-meta">
+                            <p class="project-time"><i class="far fa-calendar-alt"></i> 2021 - 2023.10</p>
+                            <p class="project-type"><i class="fas fa-building"></i> 兰州市科技创新项目</p>
+                        </div>
+                        <div class="project-description">
+                            <p>研究风电并网管理系统中的关键问题，项目于2023年10月顺利通过验收。</p>
+                        </div>
+                        <div class="project-details">
+                            <div class="project-pi">
+                                <h4><i class="fas fa-user-tie"></i> 项目信息</h4>
+                                <p><strong>项目负责人：</strong> 李彩虹 高级实验师</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-    <section class="collaborators">
-        <div class="container">
-            <h2 class="section-title">合作伙伴</h2>
-            <p class="section-subtitle">我们与国内外顶尖研究机构、企业保持紧密合作关系</p>
-            <div class="collaborators-grid">
-                <div class="collaborator-logo">
-                    <img src="images/partners/nsfc.png" alt="国家自然科学基金委员会">
+                <div class="project-card enterprise completed" data-category="enterprise completed">
+                    <div class="project-status completed">已完成</div>
+                    <div class="project-content">
+                        <h3 class="project-title">基于隐私计算的旅游多源异构数据融合共享关键技术研究</h3>
+                        <div class="project-meta">
+                            <p class="project-time"><i class="far fa-calendar-alt"></i> 2022 - 2023.12</p>
+                            <p class="project-type"><i class="fas fa-building"></i> 文化和旅游部重点实验室资助项目</p>
+                        </div>
+                        <div class="project-description">
+                            <p>研究基于隐私计算的旅游多源异构数据融合共享关键技术，项目于2023年12月顺利通过验收。</p>
+                        </div>
+                        <div class="project-details">
+                            <div class="project-pi">
+                                <h4><i class="fas fa-user-tie"></i> 项目信息</h4>
+                                <p><strong>项目负责人：</strong> 杨裔 教授</p>
+                            </div>
+                            <div class="project-outputs">
+                                <h4><i class="fas fa-tasks"></i> 研究成果</h4>
+                                <ul>
+                                    <li>开发了多种隐私计算模型用于旅游数据处理</li>
+                                    <li>构建了旅游多源异构数据融合共享平台</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="collaborator-logo">
-                    <img src="images/partners/huawei.png" alt="华为">
+
+                <div class="project-card enterprise ongoing" data-category="enterprise ongoing">
+                    <div class="project-status ongoing">进行中</div>
+                    <div class="project-content">
+                        <h3 class="project-title">甘肃省旅游大数据共享交换中心建设</h3>
+                        <div class="project-meta">
+                            <p class="project-time"><i class="far fa-calendar-alt"></i> 2022 - 至今</p>
+                            <p class="project-type"><i class="fas fa-building"></i> 企业合作项目</p>
+                        </div>
+                        <div class="project-description">
+                            <p>参与建设甘肃省旅游大数据共享交换中心，提供客流量精准预测和旅游经济报告，为政府决策提供重要参考。2023年1至7月，通过该平台的支持，全省接待游客1.97亿人次，实现旅游综合收入1160亿元，游客评价与游客体验度优于疫情之前。</p>
+                        </div>
+                        <div class="project-details">
+                            <div class="project-pi">
+                                <h4><i class="fas fa-user-tie"></i> 项目信息</h4>
+                                <p><strong>参与单位：</strong> 旅游信息融合处理与数据权属保护文化和旅游部重点实验室</p>
+                            </div>
+                            <div class="project-outputs">
+                                <h4><i class="fas fa-tasks"></i> 阶段成果</h4>
+                                <ul>
+                                    <li>为政府部门提供全面而准确的旅游经济报告</li>
+                                    <li>对各景区接待情况提供建议，提升游客服务质量</li>
+                                    <li>开发旅游大数据分析模型，提高预测准确性</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="collaborator-logo">
-                    <img src="images/partners/alibaba.png" alt="阿里巴巴">
-                </div>
-                <div class="collaborator-logo">
-                    <img src="images/partners/intel.png" alt="英特尔">
-                </div>
-                <div class="collaborator-logo">
-                    <img src="images/partners/cmu.png" alt="卡内基梅隆大学">
-                </div>
-                <div class="collaborator-logo">
-                    <img src="images/partners/epfl.png" alt="洛桑联邦理工学院">
+            </div>
+            
+            <div class="projects-category" id="international-projects" style="display: none;">
+                <div class="project-card international completed" data-category="international completed">
+                    <div class="project-status completed">已完成</div>
+                    <div class="project-content">
+                        <h3 class="project-title">澳门-兰州学术交流合作</h3>
+                        <div class="project-meta">
+                            <p class="project-time"><i class="far fa-calendar-alt"></i> 2021.09</p>
+                            <p class="project-type"><i class="fas fa-globe"></i> 国际合作交流项目</p>
+                        </div>
+                        <div class="project-description">
+                            <p>澳门城市大学副校长、数据科学学院院长周万雷教授受邀走进兰州大学、兰州交通大学开展学术交流活动，并与两校青年学子研讨交流，周万雷教授还前往兰州大学旅游信息融合处理与数据权属保护文化和旅游部重点实验室进行参观交流并听取有关情况介绍。</p>
+                        </div>
+                        <div class="project-details">
+                            <div class="project-pi">
+                                <h4><i class="fas fa-user-tie"></i> 项目信息</h4>
+                                <p><strong>合作单位：</strong> 澳门城市大学数据科学学院</p>
+                                <p><strong>交流专家：</strong> 周万雷 教授（澳门城市大学副校长、数据科学学院院长）</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -343,41 +542,82 @@
                 </div>
                 <div class="footer-links">
                     <div class="link-group">
-                        <h4>导航</h4>
+                        <h4>快速导航</h4>
                         <ul>
                             <li><a href="index.html">首页</a></li>
+                            <li><a href="lab-intro.html">实验室介绍</a></li>
+                            <li><a href="organization.html">机构设置</a></li>
                             <li><a href="people.html">团队成员</a></li>
-                            <li><a href="publications.html">论文发表</a></li>
                             <li><a href="projects.html">研究项目</a></li>
-                            <li><a href="others.html">其他</a></li>
                         </ul>
                     </div>
                     <div class="link-group">
                         <h4>资源</h4>
                         <ul>
-                            <li><a href="#">学术资源</a></li>
+                            <li><a href="#">研究成果</a></li>
+                            <li><a href="#">学术论文</a></li>
                             <li><a href="#">开源代码</a></li>
                             <li><a href="#">数据集</a></li>
-                            <li><a href="#">教程</a></li>
                         </ul>
                     </div>
                     <div class="link-group">
-                        <h4>关注我们</h4>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-github"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-linkedin"></i></a>
-                            <a href="#"><i class="fab fa-weixin"></i></a>
-                        </div>
+                        <h4>联系我们</h4>
+                        <ul>
+                            <li><a href="#"><i class="fas fa-envelope"></i> lab@example.edu.cn</a></li>
+                            <li><a href="#"><i class="fas fa-phone"></i> +86 123 4567 8901</a></li>
+                            <li><a href="#"><i class="fas fa-map-marker-alt"></i> 甘肃省兰州市</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2024 前沿技术研究实验室. 保留所有权利.</p>
+                <p>&copy; 2024 前沿技术研究实验室. 版权所有.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-weixin"></i></a>
+                    <a href="#"><i class="fab fa-weibo"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
             </div>
         </div>
     </footer>
 
-    <script src="js/projects.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 项目标签切换
+            const tabs = document.querySelectorAll('.projects-tab');
+            const categories = document.querySelectorAll('.projects-category');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // 设置激活标签
+                    tabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // 显示对应的项目类别
+                    const target = this.getAttribute('data-target');
+                    categories.forEach(category => {
+                        category.style.display = category.id === target ? 'block' : 'none';
+                    });
+                });
+            });
+            
+            // 导航下拉菜单项目过滤
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const filter = this.getAttribute('data-filter');
+                    const hash = this.getAttribute('href');
+                    
+                    if(hash.startsWith('#')) {
+                        // 找到对应标签并点击
+                        const relatedTab = document.querySelector(`.projects-tab[data-target="${hash.substring(1)}-projects"]`);
+                        if(relatedTab) {
+                            relatedTab.click();
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html> 

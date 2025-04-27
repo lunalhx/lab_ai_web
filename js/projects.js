@@ -3,81 +3,152 @@
  */
 
 document.addEventListener('DOMContentLoaded', function() {
-    // 获取所有筛选按钮和项目卡片
-    const filterButtons = document.querySelectorAll('.filter-btn');
+    // 获取URL参数
+    const urlParams = new URLSearchParams(window.location.search);
+    const filter = urlParams.get('filter');
+
+    // 获取所有项目卡片
     const projectCards = document.querySelectorAll('.project-card');
-    const filterSection = document.querySelector('.projects-filter');
     
-    // 滚动监听
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 100) { // 滚动超过100px
-            filterSection.classList.add('scrolled');
-        } else {
-            filterSection.classList.remove('scrolled');
-        }
-    });
+    // 获取所有筛选按钮（包括页面内筛选区域和导航栏下拉菜单中的按钮）
+    const filterButtons = document.querySelectorAll('.projects-filter .filter-btn');
+    const navFilterButtons = document.querySelectorAll('.dropdown-content .filter-btn');
     
-    // 当前激活的筛选类别
-    let activeFilter = 'all';
+    // 合并所有筛选按钮
+    const allFilterButtons = [...filterButtons, ...navFilterButtons];
+
+    // 获取各类项目的section
+    const nationalSection = document.getElementById('national-projects');
+    const enterpriseSection = document.getElementById('enterprise-projects');
+    const internationalSection = document.getElementById('international-projects');
     
-    // 为每个筛选按钮添加点击事件
+    // 根据URL参数设置初始筛选状态，确保页面加载时应用正确的筛选
+    if (filter) {
+        allFilterButtons.forEach(button => {
+            if (button.getAttribute('data-filter') === filter) {
+                button.classList.add('active');
+            } else {
+                button.classList.remove('active');
+            }
+        });
+        
+        // 显示对应的项目和标题
+        filterContent(filter);
+    }
+
+    // 为页面内筛选按钮添加点击事件
     filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            
             // 移除所有按钮的active类
-            filterButtons.forEach(btn => btn.classList.remove('active'));
+            allFilterButtons.forEach(btn => btn.classList.remove('active'));
             
             // 为当前点击的按钮添加active类
             button.classList.add('active');
             
-            // 获取筛选类别
-            activeFilter = button.getAttribute('data-filter');
+            const filterValue = button.getAttribute('data-filter');
             
-            // 应用筛选
-            applyFilter();
+            // 更新URL参数
+            const newUrl = new URL(window.location.href);
+            newUrl.searchParams.set('filter', filterValue);
+            window.history.pushState({}, '', newUrl);
+            
+            // 显示对应的项目和标题
+            filterContent(filterValue);
         });
     });
-    
-    // 应用筛选
-    function applyFilter() {
+
+    // 确保导航栏下拉菜单中的链接包含正确的筛选参数
+    navFilterButtons.forEach(button => {
+        const filterValue = button.getAttribute('data-filter');
+        const href = button.getAttribute('href').split('?')[0]; // 移除可能已有的参数
+        button.setAttribute('href', `${href}?filter=${filterValue}`);
+        
+        // 如果当前已经在projects页面，添加点击事件处理
+        if (window.location.pathname.includes('projects.html')) {
+            button.addEventListener('click', (e) => {
+                e.preventDefault(); // 阻止默认导航行为
+                
+                // 移除所有按钮的active类
+                allFilterButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // 为当前点击的按钮添加active类
+                button.classList.add('active');
+                
+                // 更新URL参数
+                const newUrl = new URL(window.location.href);
+                newUrl.searchParams.set('filter', filterValue);
+                window.history.pushState({}, '', newUrl);
+                
+                // 显示对应的项目和标题
+                filterContent(filterValue);
+            });
+        }
+    });
+
+    // 为研究项目导航链接添加点击事件，显示全部项目
+    const projectsNavLink = document.querySelector('.dropdown > a[href="projects.html"]');
+    if (projectsNavLink) {
+        projectsNavLink.addEventListener('click', function(e) {
+            if (window.location.pathname.includes('projects.html')) {
+                e.preventDefault(); // 如果已经在projects页面，阻止默认行为
+                
+                // 清除URL中的filter参数
+                const newUrl = new URL(window.location.href);
+                newUrl.searchParams.delete('filter');
+                window.history.pushState({}, '', newUrl);
+                
+                // 移除所有按钮的active类
+                allFilterButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // 显示所有项目
+                filterContent('all');
+            }
+            // 如果不在projects页面，让默认导航行为发生
+        });
+    }
+
+    // 筛选内容的函数
+    function filterContent(filterValue) {
+        console.log('Filtering content:', filterValue); // 调试日志
+        
+        // 处理卡片显示
         projectCards.forEach(card => {
-            // 获取卡片的类别
-            const cardCategories = card.getAttribute('data-category').split(' ');
+            const category = card.getAttribute('data-category');
+            console.log('Card category:', category); // 调试日志
             
-            // 如果筛选类别是"all"或卡片类别包含筛选类别，则显示卡片
-            if (activeFilter === 'all' || cardCategories.includes(activeFilter)) {
-                card.classList.remove('hidden');
-                // 添加动画效果
-                setTimeout(() => {
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }, 50);
+            if (filterValue === 'all' || category.includes(filterValue)) {
+                card.style.display = 'flex';
             } else {
-                // 隐藏卡片
-                card.classList.add('hidden');
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
+                card.style.display = 'none';
             }
         });
-        
-        // 检查每个类别是否有可见的卡片
-        checkEmptyCategories();
+
+        // 处理标题显示
+        if (filterValue === 'all') {
+            nationalSection.style.display = 'block';
+            enterpriseSection.style.display = 'block';
+            internationalSection.style.display = 'block';
+        } else if (filterValue === 'national') {
+            nationalSection.style.display = 'block';
+            enterpriseSection.style.display = 'none';
+            internationalSection.style.display = 'none';
+        } else if (filterValue === 'enterprise') {
+            nationalSection.style.display = 'none';
+            enterpriseSection.style.display = 'block';
+            internationalSection.style.display = 'none';
+        } else if (filterValue === 'international') {
+            nationalSection.style.display = 'none';
+            enterpriseSection.style.display = 'none';
+            internationalSection.style.display = 'block';
+        }
     }
     
-    // 检查每个类别是否有可见的卡片，如果没有，则隐藏整个部分
-    function checkEmptyCategories() {
-        const projectCategories = document.querySelectorAll('.projects-category');
-        
-        projectCategories.forEach(category => {
-            const cards = category.querySelectorAll('.project-card');
-            const visibleCards = Array.from(cards).filter(card => !card.classList.contains('hidden'));
-            
-            if (visibleCards.length === 0) {
-                category.classList.add('hidden');
-            } else {
-                category.classList.remove('hidden');
-            }
-        });
-    }
+    // 为每个项目卡片设置初始动画延迟
+    projectCards.forEach((card, index) => {
+        card.style.setProperty('--animation-order', index);
+    });
     
     // 图片延迟加载
     const lazyImages = document.querySelectorAll('.project-image img');
@@ -102,19 +173,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-    
-    // 合作伙伴logo鼠标悬停动画
-    const partnerLogos = document.querySelectorAll('.collaborator-logo');
-    
-    partnerLogos.forEach(logo => {
-        logo.addEventListener('mouseenter', () => {
-            logo.style.transform = 'scale(1.1)';
-        });
-        
-        logo.addEventListener('mouseleave', () => {
-            logo.style.transform = 'scale(1)';
-        });
-    });
     
     // 项目卡片点击展开更多信息（在移动端）
     if (window.innerWidth < 768) {
@@ -146,11 +204,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-    
-    // 为每个项目卡片添加动画延迟
-    projectCards.forEach((card, index) => {
-        card.style.setProperty('--animation-order', index % 3);
-    });
     
     // 移动端菜单
     const menuToggle = document.querySelector('.menu-toggle');

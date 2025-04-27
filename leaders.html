@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>现任领导 - 前沿技术研究实验室</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="lab-intro.css">
+    <style>
+        .leaders-title {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .leaders-title h1 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .leaders-title p {
+            color: #666;
+            font-size: 1.2rem;
+        }
+        
+        .leader-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            padding: 0 20px;
+        }
+        
+        .leader-intro p {
+            color: #000000;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .leaders-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0 60px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+            table-layout: fixed;
+        }
+
+        .leaders-table th {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .leaders-table td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            color: #000000;
+        }
+
+        .leaders-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .leaders-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .leaders-table tr:hover {
+            background-color: #f2f7ff;
+        }
+
+        .email-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .email-link:hover {
+            text-decoration: underline;
+        }
+
+        .responsibility {
+            max-width: 400px;
+            line-height: 1.6;
+        }
+        
+        /* 设置姓名列宽度 */
+        .leaders-table th:nth-child(1),
+        .leaders-table td:nth-child(1) {
+            width: 80px;
+            white-space: nowrap;
+        }
+        
+        /* 设置职务列宽度 */
+        .leaders-table th:nth-child(2),
+        .leaders-table td:nth-child(2) {
+            width: 150px;
+        }
+        
+        /* 设置职责分工列宽度 */
+        .leaders-table th:nth-child(3),
+        .leaders-table td:nth-child(3) {
+            width: 40%;
+        }
+        
+        /* 设置邮箱列宽度 */
+        .leaders-table th:nth-child(4),
+        .leaders-table td:nth-child(4) {
+            width: 15%;
+        }
+        
+        /* 设置办公地点列宽度 */
+        .leaders-table th:nth-child(5),
+        .leaders-table td:nth-child(5) {
+            width: 110px;
+        }
+        
+        /* 设置办公电话列宽度 */
+        .leaders-table th:nth-child(6),
+        .leaders-table td:nth-child(6) {
+            width: 120px;
+        }
+
+        @media (max-width: 768px) {
+            .leaders-table {
+                display: block;
+                overflow-x: auto;
+                table-layout: auto;
+            }
+            
+            .responsibility {
+                max-width: 250px;
+            }
+            
+            .leaders-table th:nth-child(1),
+            .leaders-table td:nth-child(1) {
+                min-width: 80px;
+            }
+            
+            .leaders-table th:nth-child(2),
+            .leaders-table td:nth-child(2) {
+                min-width: 150px;
+            }
+            
+            .leaders-table th:nth-child(3),
+            .leaders-table td:nth-child(3) {
+                min-width: 250px;
+            }
+            
+            .leaders-table th:nth-child(4),
+            .leaders-table td:nth-child(4) {
+                min-width: 160px;
+            }
+            
+            .leaders-table th:nth-child(5),
+            .leaders-table td:nth-child(5) {
+                min-width: 110px;
+            }
+            
+            .leaders-table th:nth-child(6),
+            .leaders-table td:nth-child(6) {
+                min-width: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <div class="lab-name">
+                    <h1>前沿技术研究实验室</h1>
+                    <h2>Advanced Technology Research Laboratory</h2>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li class="dropdown">
+                        <a href="lab-intro.html">实验室介绍</a>
+                        <div class="dropdown-content">
+                            <a href="#" class="lab-structure">实验室结构</a>
+                            <div class="sub-dropdown key-labs">
+                                <a href="key-lab-culture.html">文旅重点实验室</a>
+                                <a href="key-lab-ai.html">人工智能与算力技术重点实验室</a>
+                            </div>
+                            <a href="committee.html">标委会</a>
+                            <a href="society.html">AI探索者联盟社团</a>
+                            <a href="academic-committee.html">学术委员会</a>
+                            <a href="leaders.html" class="active">现任领导</a>
+                            <a href="contact.html">联系我们</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="organization.html">机构设置</a>
+                        <div class="dropdown-content">
+                            <a href="lab-structure.html">实验室结构</a>
+                            <a href="instruments.html">平台仪器</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="people.html">团队成员</a>
+                        <div class="dropdown-content">
+                            <a href="people.html" class="filter-btn" data-filter="teachers">教师队伍</a>
+                            <a href="people.html" class="filter-btn" data-filter="students">学生队伍</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="projects.html">研究项目</a>
+                        <div class="dropdown-content">
+                            <a href="projects.html" class="filter-btn" data-filter="national">国家级项目</a>
+                            <a href="projects.html" class="filter-btn" data-filter="enterprise">企业合作项目</a>
+                            <a href="projects.html" class="filter-btn" data-filter="international">国际合作项目</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="leaders-title">
+        <div class="container">
+            <h1>现任领导</h1>
+        </div>
+    </div>
+    
+    <div class="container">
+        <table class="leaders-table">
+            <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>现任职务</th>
+                    <th>职责分工情况</th>
+                    <th>邮箱</th>
+                    <th>办公地点</th>
+                    <th>办公电话</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>李廉</td>
+                    <td>人工智能科学研究首席科学家</td>
+                    <td class="responsibility">国家“一、二层次千百万人才工程”人选，国务院特殊津贴专家，2020年“CCF杰出教育奖”获得者。</td>
+                    <td><a href="mailto:chenwb@lzu.edu.cn" class="email-link">chenwb@lzu.edu.cn</a></td>
+                    <td>飞云楼309</td>
+                    <td>0931-8912738</td>
+                </tr>
+                <tr>
+                    <td>王建州</td>
+                    <td>人工智能科学研究首席专家</td>
+                    <td class="responsibility">现任兰州大学教授，东北财经大学统计科学研究所所长、悉尼科技大学工程与信息技术学院大数据与人工智能方向博士生导师。</td>
+                    <td><a href="mailto:duanxp@lzu.edu.cn" class="email-link">duanxp@lzu.edu.cn</a></td>
+                    <td>飞云楼310</td>
+                    <td>0931-8912708</td>
+                </tr>
+                <tr>
+                    <td>杨裔</td>
+                    <td>文旅部重点实验室主任</td>
+                    <td class="responsibility">甘肃省首批创新创业导师。获法国巴黎十一大学计算机科学博士学位，兰州大学应用数学博士学位。</td>
+                    <td><a href="mailto:gyu@lzu.edu.cn" class="email-link">gyu@lzu.edu.cn</a></td>
+                    <td>飞云楼429/致远楼805</td>
+                    <td>0931-5270250</td>
+                </tr>
+                <tr>
+                    <td>李彩虹</td>
+                    <td>文旅部重点实验室副主任</td>
+                    <td class="responsibility">高级实验师，硕士生导师</td>
+                    <td><a href="mailto:hanym@lzu.edu.cn" class="email-link">hanym@lzu.edu.cn</a></td>
+                    <td>飞云楼208</td>
+                    <td>0931-8912432</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="lab-name-footer">
+                        <h3>前沿技术研究实验室</h3>
+                        <p>Advanced Technology Research Laboratory</p>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>导航</h4>
+                        <ul>
+                            <li><a href="index.html">首页</a></li>
+                            <li><a href="lab-intro.html">实验室介绍</a></li>
+                            <li><a href="people.html">团队成员</a></li>
+                            <li><a href="projects.html">研究项目</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-group">
+                        <h4>资源</h4>
+                        <ul>
+                            <li><a href="#">学术资源</a></li>
+                            <li><a href="#">开源代码</a></li>
+                            <li><a href="#">数据集</a></li>
+                            <li><a href="#">教程</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-group">
+                        <h4>关注我们</h4>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-github"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-weixin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 前沿技术研究实验室. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html> 
