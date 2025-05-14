@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>文旅重点实验室 - 前沿技术研究实验室</title>
+    <title>文旅重点实验室 - 人工智能与算力技术实验室</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="lab-intro.css">
@@ -21,6 +21,43 @@
             color: var(--primary-color);
             margin-top: 25px;
         }
+        
+        /* 覆盖lab-intro.css中冲突的样式 */
+        .sub-dropdown {
+            position: relative !important;
+            left: auto !important;
+            top: auto !important;
+            background-color: transparent !important;
+            min-width: auto !important;
+            box-shadow: none !important;
+            border-radius: 0 !important;
+            z-index: auto !important;
+            padding: 0 !important;
+        }
+        
+        .submenu {
+            position: absolute;
+            top: -12px;
+            left: calc(100% - 10px);
+            background: #fff;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            border-radius: 12px;
+            width: 280px;
+            visibility: hidden;
+            opacity: 0;
+            z-index: 102;
+            transition: visibility 0s linear 0.25s, opacity 0.3s ease, transform 0.3s ease;
+            transform: translateX(-5px);
+            pointer-events: none;
+        }
+        
+        .sub-dropdown:hover .submenu {
+            visibility: visible;
+            opacity: 1;
+            transform: translateX(0);
+            transition-delay: 0s;
+            pointer-events: auto;
+        }
     </style>
 </head>
 <body>
@@ -28,50 +65,62 @@
         <div class="container">
             <div class="logo-container">
                 <div class="lab-name">
-                    <h1>前沿技术研究实验室</h1>
-                    <h2>Advanced Technology Research Laboratory</h2>
+                    <a href="index.html" style="text-decoration: none; color: inherit;">
+                        <h1>人工智能与算力技术实验室</h1>
+                        <h2>AI Lab</h2>
+                    </a>
                 </div>
             </div>
             <nav>
                 <ul>
-                    <li><a href="index.html">首页</a></li>
+                    <li><a href="lab-intro.html" class="nav-link">认识实验室</a></li>
                     <li class="dropdown">
-                        <a href="lab-intro.html">实验室介绍</a>
+                        <a href="#" class="nav-link">科研平台</a>
                         <div class="dropdown-content">
-                            <a href="#" class="lab-structure">实验室结构</a>
-                            <div class="sub-dropdown key-labs">
-                                <a href="key-lab-culture.html" class="active">文旅重点实验室</a>
-                                <a href="key-lab-ai.html">人工智能与算力技术重点实验室</a>
+                            <div class="sub-dropdown">
+                                <a href="#" class="has-submenu">重点实验室</a>
+                                <div class="submenu">
+                                    <a href="key-lab-culture.html">文旅重点实验室</a>
+                                    <a href="key-lab-ai.html">人工智能与算力技术重点实验室</a>
+                                </div>
                             </div>
                             <a href="committee.html">标委会</a>
-                            <a href="society.html">AI探索者联盟社团</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="nav-link">教师队伍</a>
+                        <div class="dropdown-content">
+                            <a href="people.html">研究队伍</a>
                             <a href="academic-committee.html">学术委员会</a>
-                            <a href="leaders.html">现任领导</a>
-                            <a href="contact.html">联系我们</a>
                         </div>
                     </li>
                     <li class="dropdown">
-                        <a href="organization.html">机构设置</a>
+                        <a href="#" class="nav-link">人才培养</a>
                         <div class="dropdown-content">
-                            <a href="lab-structure.html">实验室结构</a>
-                            <a href="instruments.html">平台仪器</a>
+                            <a href="society.html">社团</a>
+                            <a href="#">博士后</a>
+                            <a href="#">博士</a>
+                            <a href="#">硕士</a>
+                            <a href="#">已毕业学生</a>
                         </div>
                     </li>
                     <li class="dropdown">
-                        <a href="people.html">团队成员</a>
+                        <a href="#" class="nav-link">科学研究</a>
                         <div class="dropdown-content">
-                            <a href="people.html" class="filter-btn" data-filter="teachers">教师队伍</a>
-                            <a href="people.html" class="filter-btn" data-filter="students">学生队伍</a>
+                            <a href="comprehensive-research.html">综合研究</a>
+                            <a href="special-research.html">专项研究</a>
                         </div>
                     </li>
                     <li class="dropdown">
-                        <a href="projects.html">研究项目</a>
+                        <a href="#" class="nav-link">招生就业</a>
                         <div class="dropdown-content">
-                            <a href="projects.html" class="filter-btn" data-filter="national">国家级项目</a>
-                            <a href="projects.html" class="filter-btn" data-filter="enterprise">企业合作项目</a>
-                            <a href="projects.html" class="filter-btn" data-filter="international">国际合作项目</a>
+                            <a href="pages/enrollment/master.html">硕士招生</a>
+                            <a href="pages/enrollment/phd.html">博士招生</a>
+                            <a href="pages/enrollment/postdoc.html">博士后招生</a>
                         </div>
                     </li>
+                    <li><a href="cooperation.html" class="nav-link">合作交流</a></li>
+                    <li><a href="activities.html" class="nav-link">对外服务</a></li>
                 </ul>
             </nav>
         </div>
@@ -129,8 +178,8 @@
             <div class="footer-content">
                 <div class="footer-logo">
                     <div class="lab-name-footer">
-                        <h3>前沿技术研究实验室</h3>
-                        <p>Advanced Technology Research Laboratory</p>
+                        <h3>人工智能与算力技术实验室</h3>
+                        <p>AI Lab</p>
                     </div>
                 </div>
                 <div class="footer-links">
@@ -164,7 +213,7 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2024 前沿技术研究实验室. 保留所有权利.</p>
+                <p>&copy; 2024 人工智能与算力技术实验室. 保留所有权利.</p>
             </div>
         </div>
     </footer>

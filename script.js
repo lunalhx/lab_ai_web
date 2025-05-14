@@ -1,5 +1,64 @@
 // 研究亮点滑块控制
 document.addEventListener('DOMContentLoaded', function() {
+    // 导航栏下拉菜单优化
+    const dropdowns = document.querySelectorAll('.dropdown');
+    let timeout;
+
+    dropdowns.forEach(dropdown => {
+        const dropdownContent = dropdown.querySelector('.dropdown-content');
+        
+        dropdown.addEventListener('mouseenter', () => {
+            clearTimeout(timeout);
+            dropdownContent.style.display = 'block';
+            setTimeout(() => {
+                dropdownContent.style.opacity = '1';
+                dropdownContent.style.visibility = 'visible';
+                dropdownContent.style.transform = 'translateX(-50%) translateY(0)';
+            }, 50);
+        });
+        
+        dropdown.addEventListener('mouseleave', () => {
+            timeout = setTimeout(() => {
+                dropdownContent.style.opacity = '0';
+                dropdownContent.style.visibility = 'hidden';
+                dropdownContent.style.transform = 'translateX(-50%) translateY(10px)';
+                setTimeout(() => {
+                    if (dropdownContent.style.opacity === '0') {
+                        dropdownContent.style.display = 'none';
+                    }
+                }, 300);
+            }, 250); // 从150ms修改为250ms
+        });
+    });
+
+    // 处理子下拉菜单
+    const subDropdowns = document.querySelectorAll('.sub-dropdown');
+    subDropdowns.forEach(subDropdown => {
+        const submenu = subDropdown.querySelector('.submenu');
+        if (!submenu) return;
+        
+        subDropdown.addEventListener('mouseenter', () => {
+            clearTimeout(timeout);
+            submenu.style.display = 'block';
+            setTimeout(() => {
+                submenu.style.opacity = '1';
+                submenu.style.visibility = 'visible';
+            }, 50);
+        });
+        
+        subDropdown.addEventListener('mouseleave', () => {
+            timeout = setTimeout(() => {
+                submenu.style.opacity = '0';
+                submenu.style.visibility = 'hidden';
+                setTimeout(() => {
+                    if (submenu.style.opacity === '0') {
+                        submenu.style.display = 'none';
+                    }
+                }, 300);
+            }, 250); // 从150ms修改为250ms
+        });
+    });
+
     // 团队成员筛选功能
     const filterButtons = document.querySelectorAll('.filter-btn');
     const peopleCards = document.querySelectorAll('.people-card');

@@ -3,59 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>人工智能与算力技术重点实验室交流座谈 - 前沿技术研究实验室</title>
+    <title>算力技术大会 - 人工智能与算力技术实验室</title>
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* 覆盖lab-intro.css中冲突的样式 */
+        .sub-dropdown {
+            position: relative !important;
+            left: auto !important;
+            top: auto !important;
+            background-color: transparent !important;
+            min-width: auto !important;
+            box-shadow: none !important;
+            border-radius: 0 !important;
+            z-index: auto !important;
+            padding: 0 !important;
+        }
+        
+        .submenu {
+            position: absolute;
+            top: -12px;
+            left: calc(100% - 10px);
+            background: #fff;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            border-radius: 12px;
+            width: 280px;
+            visibility: hidden;
+            opacity: 0;
+            z-index: 102;
+            transition: visibility 0s linear 0.25s, opacity 0.3s ease, transform 0.3s ease;
+            transform: translateX(-5px);
+            pointer-events: none;
+        }
+        
+        .sub-dropdown:hover .submenu {
+            visibility: visible;
+            opacity: 1;
+            transform: translateX(0);
+            transition-delay: 0s;
+            pointer-events: auto;
+        }
+    </style>
 </head>
 <body>
     <header>
         <div class="container">
             <div class="logo-container">
                 <div class="lab-name">
-                    <h1>前沿技术研究实验室</h1>
-                    <h2>Advanced Technology Research Laboratory</h2>
+                    <a href="../index.html" style="text-decoration: none; color: inherit;">
+                        <h1>人工智能与算力技术实验室</h1>
+                        <h2>AI Lab</h2>
+                    </a>
                 </div>
             </div>
             <nav>
                 <ul>
-                    <li><a href="../index.html">首页</a></li>
+                    <li><a href="../lab-intro.html" class="nav-link">认识实验室</a></li>
                     <li class="dropdown">
-                        <a href="../lab-intro.html">实验室介绍</a>
+                        <a href="#" class="nav-link">科研平台</a>
                         <div class="dropdown-content">
-                            <a href="#" class="lab-structure">实验室结构</a>
-                            <div class="sub-dropdown key-labs">
+                            <div class="sub-dropdown">
+                                <a href="#" class="has-submenu">重点实验室</a>
+                                <div class="submenu">
                                 <a href="../key-lab-culture.html">文旅重点实验室</a>
                                 <a href="../key-lab-ai.html">人工智能与算力技术重点实验室</a>
+                                </div>
                             </div>
                             <a href="../committee.html">标委会</a>
-                            <a href="../society.html">AI探索者联盟社团</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="nav-link">教师队伍</a>
+                        <div class="dropdown-content">
+                            <a href="../people.html">研究队伍</a>
                             <a href="../academic-committee.html">学术委员会</a>
-                            <a href="../leaders.html">现任领导</a>
-                            <a href="../contact.html">联系我们</a>
                         </div>
                     </li>
                     <li class="dropdown">
-                        <a href="../organization.html">机构设置</a>
+                        <a href="#" class="nav-link">人才培养</a>
                         <div class="dropdown-content">
-                            <a href="../lab-structure.html">实验室结构</a>
-                            <a href="../instruments.html">平台仪器</a>
+                            <a href="../society.html">社团</a>
+                            <a href="#">博士后</a>
+                            <a href="#">博士</a>
+                            <a href="#">硕士</a>
+                            <a href="#">已毕业学生</a>
                         </div>
                     </li>
                     <li class="dropdown">
-                        <a href="../people.html">团队成员</a>
+                        <a href="#" class="nav-link">科学研究</a>
                         <div class="dropdown-content">
-                            <a href="../people.html" class="filter-btn" data-filter="teachers">教师队伍</a>
-                            <a href="../people.html" class="filter-btn" data-filter="students">学生队伍</a>
+                            <a href="../comprehensive-research.html">综合研究</a>
+                            <a href="../special-research.html">专项研究</a>
                         </div>
                     </li>
                     <li class="dropdown">
-                        <a href="../projects.html">研究项目</a>
+                        <a href="#" class="nav-link">招生就业</a>
                         <div class="dropdown-content">
-                            <a href="../projects.html" class="filter-btn" data-filter="national">国家级项目</a>
-                            <a href="../projects.html" class="filter-btn" data-filter="enterprise">企业合作项目</a>
-                            <a href="../projects.html" class="filter-btn" data-filter="international">国际合作项目</a>
+                            <a href="../pages/enrollment/master.html">硕士招生</a>
+                            <a href="../pages/enrollment/phd.html">博士招生</a>
+                            <a href="../pages/enrollment/postdoc.html">博士后招生</a>
                         </div>
                     </li>
+                    <li><a href="../cooperation.html" class="nav-link">合作交流</a></li>
+                    <li><a href="../activities.html" class="nav-link">对外服务</a></li>
                 </ul>
             </nav>
         </div>
@@ -146,7 +196,7 @@
                         <h2>会议照片</h2>
                         <div class="photo-gallery">
                             <div class="photo-item">
-                                <img src="../activities_files/20231027/photo/2.jpg" alt="甘肃东数西算与人工智能产业发展研讨会暨燧弘探索算力运营合作研讨会照片1" onerror="this.onerror=null; this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAADICAYAAAADLmgdAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NUJCMkY1OTlEQTI4MTFFQkFEQTg4NkFGMzlGNzIyMTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NUJCMkY1OUFEQTI4MTFFQkFEQTg4NkFGMzlGNzIyMTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo1QkIyRjU5N0RBMjgxMUVCQURBODg2QUYzOUY3MjIxNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo1QkIyRjU5OERBMjgxMUVCQURBODg2QUYzOUY3MjIxNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pn90C64AAAQ7SURBVHja7NyxjdtAFEXRT4YEByvQClSGgFaglFSB0lEZClqGOlAXrA4UTOxNBgvLHM68Q54DvJRA6OK+QYAflqF5PJ/P9eJ8kFr7SqnXR/CXz6azvjcL5TYawMuXcIw+D9YeD4dn3Mj37+9WMPv5+bktwIWt64JMAIBMAIBMAIBMAIBMAIBMAIBMAIBMAIBMAPwCk7XGF0IBoOICxPgGCMgEAMgEAMgEAMgEAMgEsLEA+IcG5hn5AKDiAgyfAYJMAIBMAIBMAIBMAIBMAIBMAIBMAIBMALzEZK3jhXJrFxARADB7AYb/oQJwYeu6IBMAIBMAIBMAIBMAIBMAIBMAIBMAIBMA/y1r50+tAaBiAQDgYgFgfAMEmQAAmQAAmQAAmQAAmQD43wLgBwDmGfkAoOICXPA7GCABUMZPggEJgDK+EQZIAJTxLzEgAVDGN8OABEAZPwkGJADK+GYYkAAo46fBgARAGT8NBiQAyvhpMGAlGmDqP06dUUACoIxPhAEJgDI+EQYkAMr4ZhiQACjj02BAAqCMnwwDEgBlfCIMMOP6mXr/jQJgaQHS9x8JwNACGKCAGVbmGfmAJQXIPkAZbwYogzIAJvmRt/FmsNILEHqAGVbmGfmAFQogAE4WQAgdL5Q7qwD5jZ+oACEPI/hhiAYQACcKkG38RAUwQAEzrMwz8gEgEwAgEwAgEwAgEwAgEwAgE0De+KkKYIASADMZVDZ+qgLEPAx+GcYAJQAGMagYnDqgALkaP0kBzADFAKVgZZ6RDzCeQQU/+C4qANcFXvTQHwAwk0HF+KkK4NdhhMD0BpWNn6YA3hAgEGYzKPhBd1UBuC7wogcA0xlQNLg/QTLDyjxjXWEAzGhQ0dA+A4QB8JJB2fhJCuAzQNPvv8/B6gJgEoPKxk9RgJSOF8AoBlXjpygA8aM+A4QB8JJBZeMnKEBKxwtgBIOq8RMUgPhRmwHCAHjRoKrxFy9ASscLYhSDbPyFCpDS8RIfhVEMsvEzFAAGRy0GCAMgzCA5G3+RApAeRXwUTGAQ3AVYXAAS498QIAiAbIPgj34XL0BKxwsiDAqxwC7/4gVI6Xjhjzps8OXDLVuAlI4X/qhIg+j0B8AAIQQCDLLxj48AEuPfEEDIYCSDqsaDuiCZYWWesSa8AQIGkQ2+fLiFFyClJxR+1JGDo9MfAANECARkkI2fHgFQgMtY4H5LxwsYvBsLPO7YAiTGvyEA7YcBcH0ssNvSEwtYuAQCgwlW5hl4AwQYvO0zgLCzAJfHAvdbeiLhyxkgLLB/LABccGIBGrvYWOD+GfkPVH4a4gZ3s7HAF08t/CFHJIDJPrEI4EcL7LDnkh+s9EVhI90WYDWxSQRg6DclgPFugIBDPgOEHXfHzAA3jrcFYIQbASDGux3AlY8BYg+4gBH20S6DJd4AAAAAAAAAAAAAAADwzC8BBgBu3En5yjHlnAAAAABJRU5ErkJggg=='; this.alt='图片加载失败';">
+                                <img src="../activities_files/20231027/photo/2.jpg" alt="甘肃东数西算与人工智能产业发展研讨会暨燧弘探索算力运营合作研讨会照片1" onerror="this.onerror=null; this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAADICAYAAAADLmgdAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NUJCMkY1OTlEQTI4MTFFQkFEQTg4NkFGMzlGNzIyMTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NUJCMkY1OUFEQTI4MTFFQkFEQTg4NkFGMzlGNzIyMTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo1QkIyRjU5N0RBMjgxMUVCQURBODg2QUYzOUY3MjIxNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo1QkIyRjU5OERBMjgxMUVCQURBODg2QUYzOUY3MjIxNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pn90C64AAAQ7SURBVHja7NyxjdtAFEXRT4YEByvQClSGgFaglFSB0lEZClqGOlAXrA4UTOxNBgvLHM68Q54DvJRA6OK+QYAflqF5PJ/P9eJ8kFr7SqnXR/CXz6azvjcL5TYawMuXcIw+D9YeD4dn3Mj37+9WMPv5+bktwIWt64JMAIBMAIBMAIBMAIBMAIBMAIBMAIBMAIBMAPwCk7XGF0IBoOICxPgGCMgEAMgEAMgEAMgEAMgEsLEA+IcG5hn5AKDiAgyfAYJMAIBMAIBMAIBMAIBMAIBMAIBMAIBMA/y1r50+tAaBiAQDgYgFgfAMEmQAAmQAAmQAAmQAAmQD43wLgBwDmGfkAoOICXPA7GCABUMZPggEJgDK+EQZIAJTxLzEgAVDGN8OABEAZPwkGJADK+GYYkAAo46fBgARAGT8NBiQAyvhpMGAlGmDqP06dUUACoIxPhAEJgDI+EQYkAMr4ZhiQACjj02BAAqCMnwwDEgBlfCIMMOP6mXr/jQJgaQHS9x8JwNACGKCAGVbmGfmAJQXIPkAZbwYogzIAJvmRt/FmsNILEHqAGVbmGfmAFQogAE4WQAgdL5Q7qwD5jZ+oACEPI/hhiAYQACcKkG38RAUwQAEzrMwz8gEgEwAgEwAgEwAgEwAgEwAgE0De+KkKYIASADMZVDZ+qgLEPAx+GcYAJQAGMagYnDqgALkaP0kBzADFAKVgZZ6RDzCeQQU/+C4qANcFXvTQHwAwk0HF+KkK4NdhhMD0BpWNn6YA3hAgEGYzKPhBd1UBuC7wogcA0xlQNLg/QTLDyjxjXWEAzGhQ0dA+A4QB8JJB2fhJCuAzQNPvv8/B6gJgEoPKxk9RgJSOF8AoBlXjpygA8aM+A4QB8JJBZeMnKEBKxwtgBIOq8RMUgPhRmwHCAHjRoKrxFy9ASscLYhSDbPyFCpDS8RIfhVEMsvEzFAAGRy0GCAMgzCA5G3+RApAeRXwUTGAQ3AVYXAAS498QIAiAbIPgj34XL0BKxwsiDAqxwC7/4gVI6Xjhjzps8OXDLVuAlI4X/qhIg+j0B8AAIQQCDLLxj48AEuPfEEDIYCSDqsaDuiCZYWWesSa8AQIGkQ2+fLiFFyClJxR+1JGDo9MfAANECARkkI2fHgFQgMtY4H5LxwsYvBsLPO7YAiTGvyEA7YcBcH0ssNvSEwtYuAQCgwlW5hl4AwQYvO0zgLCzAJfHAvdbeiLhyxkgLLB/LABccGIBGrvYWOD+GfkPVH4a4gZ3s7HAF08t/CFHJIDJPrEI4EcL7LDnkh+s9EVhI90WYDWxSQRg6DclgPFugIBDPgOEHXfHzAA3jrcFYIQbASDGux3AlY8BYg+4gBH20S6DJd4AAAAAAAAAAAAAAADwzC8BBgBu3En5yjHlnAAAAABJRU5ErkJggg=='; this.alt='图片加载失败';">
                             </div>
                             <div class="photo-item">
                                 <img src="../activities_files/20231027/photo/1.jpg" alt="甘肃东数西算与人工智能产业发展研讨会暨燧弘探索算力运营合作研讨会照片2" onerror="this.onerror=null; this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAADICAYAAAADLmgdAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NUJCMkY1OTlEQTI4MTFFQkFEQTg4NkFGMzlGNzIyMTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NUJCMkY1OUFEQTI4MTFFQkFEQTg4NkFGMzlGNzIyMTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo1QkIyRjU5N0RBMjgxMUVCQURBODg2QUYzOUY3MjIxNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo1QkIyRjU5OERBMjgxMUVCQURBODg2QUYzOUY3MjIxNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pn90C64AAAQ7SURBVHja7NyxjdtAFEXRT4YEByvQClSGgFaglFSB0lEZClqGOlAXrA4UTOxNBgvLHM68Q54DvJRA6OK+QYAflqF5PJ/P9eJ8kFr7SqnXR/CXz6azvjcL5TYawMuXcIw+D9YeD4dn3Mj37+9WMPv5+bktwIWt64JMAIBMAIBMAIBMAIBMAIBMAIBMAIBMAIBMAPwCk7XGF0IBoOICxPgGCMgEAMgEAMgEAMgEAMgEsLEA+IcG5hn5AKDiAgyfAYJMAIBMAIBMAIBMAIBMAIBMAIBMAIBMALzEZK3jhXJrFxARADB7AYb/oQJwYeu6IBMAIBMAIBMAIBMAIBMAIBMAIBMAIBMA/y1r50+tAaBiAQDgYgFgfAMEmQAAmQAAmQAAmQAAmQD43wLgBwDmGfkAoOICXPA7GCABUMZPggEJgDK+EQZIAJTxLzEgAVDGN8OABEAZPwkGJADK+GYYkAAo46fBgARAGT8NBiQAyvhpMGAlGmDqP06dUUACoIxPhAEJgDI+EQYkAMr4ZhiQACjj02BAAqCMnwwDEgBlfCIMMOP6mXr/jQJgaQHS9x8JwNACGKCAGVbmGfmAJQXIPkAZbwYogzIAJvmRt/FmsNILEHqAGVbmGfmAFQogAE4WQAgdL5Q7qwD5jZ+oACEPI/hhiAYQACcKkG38RAUwQAEzrMwz8gEgEwAgEwAgEwAgEwAgEwAgE0De+KkKYIASADMZVDZ+qgLEPAx+GcYAJQAGMagYnDqgALkaP0kBzADFAKVgZZ6RDzCeQQU/+C4qANcFXvTQHwAwk0HF+KkK4NdhhMD0BpWNn6YA3hAgEGYzKPhBd1UBuC7wogcA0xlQNLg/QTLDyjxjXWEAzGhQ0dA+A4QB8JJB2fhJCuAzQNPvv8/B6gJgEoPKxk9RgJSOF8AoBlXjpygA8aM+A4QB8JJBZeMnKEBKxwtgBIOq8RMUgPhRmwHCAHjRoKrxFy9ASscLYhSDbPyFCpDS8RIfhVEMsvEzFAAGRy0GCAMgzCA5G3+RApAeRXwUTGAQ3AVYXAAS498QIAiAbIPgj34XL0BKxwsiDAqxwC7/4gVI6Xjhjzps8OXDLVuAlI4X/qhIg+j0B8AAIQQCDLLxj48AEuPfEEDIYCSDqsaDuiCZYWWesSa8AQIGkQ2+fLiFFyClJxR+1JGDo9MfAANECARkkI2fHgFQgMtY4H5LxwsYvBsLPO7YAiTGvyEA7YcBcH0ssNvSEwtYuAQCgwlW5hl4AwQYvO0zgLCzAJfHAvdbeiLhyxkgLLB/LABccGIBGrvYWOD+GfkPVH4a4gZ3s7HAF08t/CFHJIDJPrEI4EcL7LDnkh+s9EVhI90WYDWxSQRg6DclgPFugIBDPgOEHXfHzAA3jrcFYIQbASDGux3AlY8BYg+4gBH20S6DJd4AAAAAAAAAAAAAAADwzC8BBgBu3En5yjHlnAAAAABJRU5ErkJggg=='; this.alt='图片加载失败';">
@@ -321,8 +371,8 @@
             <div class="footer-content">
                 <div class="footer-logo">
                     <div class="lab-name-footer">
-                        <h3>前沿技术研究实验室</h3>
-                        <p>Advanced Technology Research Laboratory</p>
+                        <h3>人工智能与算力技术实验室</h3>
+                        <p>AI Lab</p>
                     </div>
                 </div>
                 <div class="footer-links">
@@ -356,7 +406,7 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2024 前沿技术研究实验室. 保留所有权利.</p>
+                <p>&copy; 2024 人工智能与算力技术实验室. 保留所有权利.</p>
             </div>
         </div>
     </footer>

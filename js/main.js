@@ -3,6 +3,96 @@
  */
 
 document.addEventListener('DOMContentLoaded', function() {
+    // 首页轮播图功能
+    const carouselSlides = document.querySelectorAll('.carousel-slide');
+    const carouselDots = document.querySelectorAll('.carousel-dot');
+    const prevButton = document.querySelector('.carousel-prev');
+    const nextButton = document.querySelector('.carousel-next');
+    let currentSlide = 0;
+    let slideInterval;
+
+    // 初始化轮播
+    function initCarousel() {
+        if (carouselSlides.length === 0) return;
+        
+        // 设置初始状态
+        carouselSlides[0].classList.add('active');
+        if (carouselDots.length > 0) {
+            carouselDots[0].classList.add('active');
+        }
+        
+        // 开始自动轮播
+        startSlideInterval();
+        
+        // 添加轮播控件事件
+        if (prevButton) {
+            prevButton.addEventListener('click', () => {
+                goToSlide(currentSlide - 1);
+                resetSlideInterval();
+            });
+        }
+        
+        if (nextButton) {
+            nextButton.addEventListener('click', () => {
+                goToSlide(currentSlide + 1);
+                resetSlideInterval();
+            });
+        }
+        
+        carouselDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                goToSlide(index);
+                resetSlideInterval();
+            });
+        });
+    }
+    
+    // 轮播到指定幻灯片
+    function goToSlide(slideIndex) {
+        // 移除当前激活状态
+        carouselSlides[currentSlide].classList.remove('active');
+        if (carouselDots.length > 0) {
+            carouselDots[currentSlide].classList.remove('active');
+        }
+        
+        // 计算新的幻灯片索引（环形）
+        currentSlide = (slideIndex + carouselSlides.length) % carouselSlides.length;
+        
+        // 应用新的激活状态
+        carouselSlides[currentSlide].classList.add('active');
+        if (carouselDots.length > 0) {
+            carouselDots[currentSlide].classList.add('active');
+        }
+    }
+    
+    // 开始自动轮播
+    function startSlideInterval() {
+        slideInterval = setInterval(() => {
+            goToSlide(currentSlide + 1);
+        }, 5000); // 5秒自动切换
+    }
+    
+    // 重置轮播计时器
+    function resetSlideInterval() {
+        clearInterval(slideInterval);
+        startSlideInterval();
+    }
+    
+    // 当鼠标悬停在轮播区域时暂停轮播
+    const carousel = document.querySelector('.hero-carousel');
+    if (carousel) {
+        carousel.addEventListener('mouseenter', () => {
+            clearInterval(slideInterval);
+        });
+        
+        carousel.addEventListener('mouseleave', () => {
+            startSlideInterval();
+        });
+    }
+    
+    // 初始化轮播
+    initCarousel();
+
     // 导航栏滚动效果
     const header = document.querySelector('header');
     let lastScrollTop = 0;
@@ -25,6 +115,81 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         lastScrollTop = scrollTop;
+    });
+
+    // 下拉菜单延迟关闭功能
+    const dropdowns = document.querySelectorAll('.dropdown');
+    const subDropdowns = document.querySelectorAll('.sub-dropdown');
+    
+    // 为一级下拉菜单添加延迟关闭效果
+    let dropdownTimeouts = {};
+    
+    dropdowns.forEach((dropdown, index) => {
+        const dropdownContent = dropdown.querySelector('.dropdown-content');
+        
+        if (!dropdownContent) return;
+        
+        dropdown.addEventListener('mouseenter', () => {
+            // 清除该下拉菜单的关闭计时器
+            if (dropdownTimeouts[index]) {
+                clearTimeout(dropdownTimeouts[index]);
+                delete dropdownTimeouts[index];
+            }
+            
+            // 重置其他下拉菜单的显示状态
+            dropdowns.forEach((otherDropdown, otherIndex) => {
+                if (otherIndex !== index) {
+                    const otherContent = otherDropdown.querySelector('.dropdown-content');
+                    if (otherContent) {
+                        otherContent.style.visibility = 'hidden';
+                        otherContent.style.opacity = '0';
+                    }
+                }
+            });
+            
+            // 显示当前下拉菜单
+            dropdownContent.style.visibility = 'visible';
+            dropdownContent.style.opacity = '1';
+        });
+        
+        dropdown.addEventListener('mouseleave', () => {
+            // 设置延迟关闭计时器
+            dropdownTimeouts[index] = setTimeout(() => {
+                dropdownContent.style.visibility = 'hidden';
+                dropdownContent.style.opacity = '0';
+            }, 250); // 250毫秒延迟关闭
+        });
+    });
+    
+    // 为二级下拉菜单添加延迟关闭效果
+    let submenuTimeouts = {};
+    
+    subDropdowns.forEach((subDropdown, index) => {
+        const submenu = subDropdown.querySelector('.submenu');
+        
+        if (!submenu) return;
+        
+        subDropdown.addEventListener('mouseenter', () => {
+            // 清除该子菜单的关闭计时器
+            if (submenuTimeouts[index]) {
+                clearTimeout(submenuTimeouts[index]);
+                delete submenuTimeouts[index];
+            }
+            
+            // 显示当前子菜单
+            submenu.style.visibility = 'visible';
+            submenu.style.opacity = '1';
+            submenu.style.transform = 'translateX(0)';
+        });
+        
+        subDropdown.addEventListener('mouseleave', () => {
+            // 设置延迟关闭计时器
+            submenuTimeouts[index] = setTimeout(() => {
+                submenu.style.visibility = 'hidden';
+                submenu.style.opacity = '0';
+                submenu.style.transform = 'translateX(-5px)';
+            }, 250); // 250毫秒延迟关闭
+        });
     });
 
     // 亮点论文轮播
@@ -123,7 +288,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             subDropdown.style.display = 'none';
                         }
                     }, 300);
-                }, 300);
+                }, 250); // 250毫秒的延迟
             }
         });
         
@@ -142,7 +307,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         subDropdown.style.display = 'none';
                     }
                 }, 300);
-            }, 300); // 300ms延迟，让用户有时间将鼠标移回
+            }, 250); // 250毫秒的延迟
         });
     }
 

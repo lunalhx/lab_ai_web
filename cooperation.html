@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>合作交流 - 人工智能与算力技术实验室</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* 覆盖lab-intro.css中冲突的样式 */
+        .sub-dropdown {
+            position: relative !important;
+            left: auto !important;
+            top: auto !important;
+            background-color: transparent !important;
+            min-width: auto !important;
+            box-shadow: none !important;
+            border-radius: 0 !important;
+            z-index: auto !important;
+            padding: 0 !important;
+        }
+        
+        .submenu {
+            position: absolute;
+            top: -12px;
+            left: calc(100% - 10px);
+            background: #fff;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            border-radius: 12px;
+            width: 280px;
+            visibility: hidden;
+            opacity: 0;
+            z-index: 102;
+            transition: visibility 0s linear 0.25s, opacity 0.3s ease, transform 0.3s ease;
+            transform: translateX(-5px);
+            pointer-events: none;
+        }
+        
+        .sub-dropdown:hover .submenu {
+            visibility: visible;
+            opacity: 1;
+            transform: translateX(0);
+            transition-delay: 0s;
+            pointer-events: auto;
+        }
+
+        /* 合作交流页面特定样式 */
+        .cooperation-section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--primary-color);
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .partner-category {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            padding: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .partner-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .category-title {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #eee;
+            position: relative;
+        }
+
+        .category-title:after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .partner-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .partner-item {
+            padding: 15px 0;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+        }
+
+        .partner-item:last-child {
+            border-bottom: none;
+        }
+
+        .partner-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(0, 123, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: var(--primary-color);
+        }
+
+        .partner-name {
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        @media (max-width: 768px) {
+            .partners-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cooperation-section {
+                padding: 40px 0;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+                margin-bottom: 30px;
+            }
+            
+            .category-title {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <div class="lab-name">
+                    <a href="index.html" style="text-decoration: none; color: inherit;">
+                        <h1>人工智能与算力技术实验室</h1>
+                        <h2>AI Lab</h2>
+                    </a>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="lab-intro.html" class="nav-link">认识实验室</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="nav-link">科研平台</a>
+                        <div class="dropdown-content">
+                            <div class="sub-dropdown">
+                                <a href="#" class="has-submenu">重点实验室</a>
+                                <div class="submenu">
+                                    <a href="key-lab-culture.html">文旅重点实验室</a>
+                                    <a href="key-lab-ai.html">人工智能与算力技术重点实验室</a>
+                                </div>
+                            </div>
+                            <a href="committee.html">标委会</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="nav-link">教师队伍</a>
+                        <div class="dropdown-content">
+                            <a href="people.html">研究队伍</a>
+                            <a href="academic-committee.html">学术委员会</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="nav-link">人才培养</a>
+                        <div class="dropdown-content">
+                            <a href="society.html">社团</a>
+                            <a href="pages/talents/postdoc.html">博士后</a>
+                            <a href="pages/talents/phd.html">博士</a>
+                            <a href="pages/talents/master.html">硕士</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="nav-link">科学研究</a>
+                        <div class="dropdown-content">
+                            <a href="comprehensive-research.html">综合研究</a>
+                            <a href="special-research.html">专项研究</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="nav-link">招生就业</a>
+                        <div class="dropdown-content">
+                            <a href="pages/enrollment/master.html">硕士招生</a>
+                            <a href="pages/enrollment/phd.html">博士招生</a>
+                            <a href="pages/enrollment/postdoc.html">博士后招生</a>
+                        </div>
+                    </li>
+                    <li><a href="cooperation.html" class="nav-link">合作交流</a></li>
+                    <li><a href="activities.html" class="nav-link">对外服务</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="cooperation-section">
+        <div class="container">
+            <h2 class="section-title">合作机构</h2>
+            <div class="partners-grid">
+                <div class="partner-category">
+                    <h3 class="category-title">依托单位</h3>
+                    <ul class="partner-list">
+                        <li class="partner-item">
+                            <div class="partner-icon">
+                                <i class="fas fa-university"></i>
+                            </div>
+                            <div class="partner-name">兰州大学</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="partner-category">
+                    <h3 class="category-title">共建单位</h3>
+                    <ul class="partner-list">
+                        <li class="partner-item">
+                            <div class="partner-icon">
+                                <i class="fas fa-server"></i>
+                            </div>
+                            <div class="partner-name">甘肃燧弘绿色算力有限公司</div>
+                        </li>
+                        <li class="partner-item">
+                            <div class="partner-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <div class="partner-name">甘肃紫金云大数据开发有限责任公司</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="partner-category">
+                    <h3 class="category-title">合作单位</h3>
+                    <ul class="partner-list">
+                        <li class="partner-item">
+                            <div class="partner-icon">
+                                <i class="fas fa-desktop"></i>
+                            </div>
+                            <div class="partner-name">甘肃省计算中心</div>
+                        </li>
+                        <li class="partner-item">
+                            <div class="partner-icon">
+                                <i class="fas fa-broadcast-tower"></i>
+                            </div>
+                            <div class="partner-name">中国移动通信集团甘肃有限公司</div>
+                        </li>
+                        <li class="partner-item">
+                            <div class="partner-icon">
+                                <i class="fas fa-microchip"></i>
+                            </div>
+                            <div class="partner-name">摩尔线程智能科技（北京）有限责任公司</div>
+                        </li>
+                        <li class="partner-item">
+                            <div class="partner-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <div class="partner-name">北京智谱华章科技有限公司</div>
+                        </li>
+                        <li class="partner-item">
+                            <div class="partner-icon">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <div class="partner-name">内蒙古探索超算科技有限公司</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cooperation-vision">
+        <div class="container">
+            <div class="vision-content" style="background-color: #f8f9fa; padding: 50px; border-radius: 10px; margin: 40px 0; text-align: center;">
+                <h2 style="color: var(--primary-color); margin-bottom: 30px;">合作愿景</h2>
+                <p style="font-size: 1.1rem; line-height: 1.8; max-width: 800px; margin: 0 auto; color: #444;">
+                    人工智能与算力技术实验室致力于与国内外高校、科研机构、企业建立长期稳定的合作关系，
+                    共同开展人工智能与高性能计算领域的前沿研究与技术创新，培养高水平人才，
+                    推动科研成果转化，为国家科技创新和区域经济发展做出贡献。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="lab-name-footer">
+                        <h3>人工智能与算力技术实验室</h3>
+                        <p>AI Lab</p>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>导航</h4>
+                        <ul>
+                            <li><a href="index.html">首页</a></li>
+                            <li><a href="lab-intro.html">实验室介绍</a></li>
+                            <li><a href="people.html">团队成员</a></li>
+                            <li><a href="projects.html">研究项目</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-group">
+                        <h4>资源</h4>
+                        <ul>
+                            <li><a href="#">学术资源</a></li>
+                            <li><a href="#">开源代码</a></li>
+                            <li><a href="#">数据集</a></li>
+                            <li><a href="#">教程</a></li>
+                        </ul>
+                    </div>
+                    <div class="link-group">
+                        <h4>关注我们</h4>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-github"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-weixin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 人工智能与算力技术实验室. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html> 

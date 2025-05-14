@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>实验室 - 专注于前沿技术研究</title>
+    <title>人工智能与算力技术实验室 - AI Lab</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -12,63 +12,88 @@
         <div class="container">
             <div class="logo-container">
                 <div class="lab-name">
-                    <h1>前沿技术研究实验室</h1>
-                    <h2>Advanced Technology Research Laboratory</h2>
+                    <a href="index.html" style="text-decoration: none; color: inherit;">
+                        <h1>人工智能与算力技术实验室</h1>
+                        <h2>AI Lab</h2>
+                    </a>
                 </div>
             </div>
             <nav>
                 <ul>
-                    <li><a href="index.html" class="active">首页</a></li>
+                    <li><a href="lab-intro.html" class="nav-link">认识实验室</a></li>
                     <li class="dropdown">
-                        <a href="lab-intro.html">实验室介绍</a>
+                        <a href="#" class="nav-link">科研平台</a>
                         <div class="dropdown-content">
-                            <a href="#" class="lab-structure">实验室结构</a>
-                            <div class="sub-dropdown key-labs">
-                                <a href="key-lab-culture.html">文旅重点实验室</a>
-                                <a href="key-lab-ai.html">人工智能与算力技术重点实验室</a>
+                            <div class="sub-dropdown">
+                                <a href="#" class="has-submenu">重点实验室</a>
+                                <div class="submenu">
+                                    <a href="key-lab-culture.html">文旅重点实验室</a>
+                                    <a href="key-lab-ai.html">人工智能与算力技术重点实验室</a>
+                                </div>
                             </div>
                             <a href="committee.html">标委会</a>
-                            <a href="society.html">AI探索者联盟社团</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="nav-link">教师队伍</a>
+                        <div class="dropdown-content">
+                            <a href="people.html">研究队伍</a>
                             <a href="academic-committee.html">学术委员会</a>
-                            <a href="leaders.html">现任领导</a>
-                            <a href="contact.html">联系我们</a>
                         </div>
                     </li>
                     <li class="dropdown">
-                        <a href="organization.html">机构设置</a>
+                        <a href="#" class="nav-link">人才培养</a>
                         <div class="dropdown-content">
-                            <a href="lab-structure.html">实验室结构</a>
-                            <a href="instruments.html">平台仪器</a>
+                            <a href="society.html">社团</a>
+                            <a href="#">博士后</a>
+                            <a href="#">博士</a>
+                            <a href="#">硕士</a>
+                            <a href="#">已毕业学生</a>
                         </div>
                     </li>
                     <li class="dropdown">
-                        <a href="people.html">团队成员</a>
+                        <a href="#" class="nav-link">科学研究</a>
                         <div class="dropdown-content">
-                            <a href="people.html" class="filter-btn" data-filter="teachers">教师队伍</a>
-                            <a href="people.html" class="filter-btn" data-filter="students">学生队伍</a>
+                            <a href="comprehensive-research.html">综合研究</a>
+                            <a href="special-research.html">专项研究</a>
                         </div>
                     </li>
                     <li class="dropdown">
-                        <a href="projects.html">研究项目</a>
+                        <a href="#" class="nav-link">招生就业</a>
                         <div class="dropdown-content">
-                            <a href="projects.html" class="filter-btn" data-filter="national">国家级项目</a>
-                            <a href="projects.html" class="filter-btn" data-filter="enterprise">企业合作项目</a>
-                            <a href="projects.html" class="filter-btn" data-filter="international">国际合作项目</a>
+                            <a href="pages/enrollment/master.html">硕士招生</a>
+                            <a href="pages/enrollment/phd.html">博士招生</a>
+                            <a href="pages/enrollment/postdoc.html">博士后招生</a>
                         </div>
                     </li>
+                    <li><a href="cooperation.html" class="nav-link">合作交流</a></li>
+                    <li><a href="activities.html" class="nav-link">对外服务</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <section class="hero hero-section">
-        <div class="container">
-            <div class="hero-content">
-                <h2>推动科技创新的前沿</h2>
-                <p>我们致力于解决计算机科学与人工智能领域的关键挑战，培养未来的技术领导者</p>
-                <div class="cta-buttons">
-                    <a href="projects.html" class="btn btn-primary">查看研究成果</a>
+    <section class="hero-carousel">
+        <div class="carousel-container">
+            <div class="carousel-track">
+                <div class="carousel-slide active">
+                    <img src="images/lab-team1.jpg" alt="实验室图片">
                 </div>
+                <div class="carousel-slide">
+                    <img src="images/lab-team2.jpg" alt="实验室图片">
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/lab-team3.jpg" alt="实验室图片">
+                </div>
+            </div>
+            <div class="carousel-nav">
+                <button class="carousel-prev"><i class="fas fa-chevron-left"></i></button>
+                <div class="carousel-dots">
+                    <button class="carousel-dot active" data-slide="0"></button>
+                    <button class="carousel-dot" data-slide="1"></button>
+                    <button class="carousel-dot" data-slide="2"></button>
+                </div>
+                <button class="carousel-next"><i class="fas fa-chevron-right"></i></button>
             </div>
         </div>
     </section>
@@ -177,11 +202,19 @@
                             <a href="news.html" class="more-link-top">更多 <i class="fas fa-angle-right"></i></a>
                         </h2>
                         <div class="news-list">
-                            <div class="news-item">
-                                <div class="news-date">2023.7.12</div>
-                                <div class="news-content">
-                                    <h3>着力推动文旅产业数字化建设加快发展</h3>
-                                    <a href="https://www.srdice.net/?m=home&c=View&a=index&aid=3259" class="news-more" target="_blank">阅读全文</a>
+                            <div class="news-item featured-news">
+                                <div class="featured-news-container">
+                                    <div class="featured-news-image">
+                                        <img src="images/news/digital-construction.jpg" alt="着力推动文旅产业数字化建设加快发展" class="news-image">
+                                    </div>
+                                    <div class="featured-news-info">
+                                        <div class="news-date">2023.7.12</div>
+                                        <div class="news-content">
+                                            <h3>着力推动文旅产业数字化建设加快发展</h3>
+                                            <p>为深入贯彻落实党的二十大精神，加快推进文旅产业数字化转型，提升文旅产业核心竞争力...</p>
+                                            <a href="https://www.srdice.net/?m=home&c=View&a=index&aid=3259" class="news-more" target="_blank">阅读全文</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="news-item">
@@ -208,43 +241,8 @@
                             <div class="news-item">
                                 <div class="news-date">2023.4.28</div>
                                 <div class="news-content">
-                                    <h3>【甘快看】为甘肃文旅产业提质增效转型升级提供"数字动能"</h3>
-                                    <a href="https://gansu.gscn.com.cn/system/2023/04/28/012950817.shtml" class="news-more" target="_blank">阅读全文</a>
-                                </div>
-                            </div>
-                            <div class="news-item">
-                                <div class="news-date">2023.4.28</div>
-                                <div class="news-content">
-                                    <h3>为甘肃文旅产业高质量发展提供数字动能——省文旅厅与10个网络平台签订合作协议</h3>
-                                    <a href="https://www.gswbj.gov.cn/a/2023/04/28/17107.html" class="news-more" target="_blank">阅读全文</a>
-                                </div>
-                            </div>
-                            <div class="news-item">
-                                <div class="news-date">2023.3.17</div>
-                                <div class="news-content">
-                                    <h3>国家信息中心调研甘肃数字文旅建设工作</h3>
-                                    <a href="https://mp.weixin.qq.com/s/eFBcwY4TEVK5VqJ-x7HDaQ" class="news-more" target="_blank">阅读全文</a>
-                                </div>
-                            </div>
-                            <div class="news-item">
-                                <div class="news-date">2023.3.16</div>
-                                <div class="news-content">
-                                    <h3>甘肃省文旅厅与支付宝座谈对接工作</h3>
-                                    <a href="https://mp.weixin.qq.com/s/Rh-mna59Wsmnu3PuLoBjYQ" class="news-more" target="_blank">阅读全文</a>
-                                </div>
-                            </div>
-                            <div class="news-item">
-                                <div class="news-date">2023.3.1</div>
-                                <div class="news-content">
-                                    <h3>中国旅游研究院重大项目课题组到甘肃调研</h3>
-                                    <a href="https://www.mct.gov.cn/whzx/qgwhxxlb/gs/202303/t20230301_939431.htm" class="news-more" target="_blank">阅读全文</a>
-                                </div>
-                            </div>
-                            <div class="news-item">
-                                <div class="news-date">2023.2.8</div>
-                                <div class="news-content">
-                                    <h3>甘肃省文旅厅与同程旅行座谈对接工作</h3>
-                                    <a href="https://mp.weixin.qq.com/s/pkyvhtGgEnEudOqtdVRVAA" class="news-more" target="_blank">阅读全文</a>
+                                    <h3>甘肃省文旅厅与兰州大学开展标准化工作座谈</h3>
+                                    <a href="https://mp.weixin.qq.com/s/GqfCYrTl8WEaQWUAzRfWJg" class="news-more" target="_blank">阅读全文</a>
                                 </div>
                             </div>
                         </div>
@@ -254,382 +252,13 @@
         </div>
     </section>
 
-    <style>
-        .content-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin: 40px 0;
-        }
-        
-        .left-column {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-        }
-        
-        .notice-board,
-        .academic-activities,
-        .news-board {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            overflow: hidden;
-        }
-        
-        .board-title {
-            background-color: var(--primary-color);
-            color: white;
-            margin: 0;
-            padding: 15px 20px;
-            font-size: 1.4rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .notice-list {
-            padding: 10px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        
-        .notice-item {
-            display: flex;
-            margin-bottom: 0;
-            padding: 0;
-            border-bottom: none;
-            background-color: #fff;
-            border-radius: 6px;
-            overflow: hidden;
-            box-shadow: 0 1px 6px rgba(0,0,0,0.03);
-            transition: transform 0.2s ease;
-            height: auto;
-            min-height: 60px;
-        }
-        
-        .notice-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-        }
-        
-        .notice-item:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
-        }
-        
-        .notice-date {
-            background-color: #f5f5f5;
-            color: #0056b3;
-            font-size: 1rem;
-            font-weight: bold;
-            text-align: center;
-            width: 90px;
-            min-width: 90px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 6px 0 0 6px;
-        }
-        
-        .notice-content {
-            flex: 1;
-            padding: 12px 15px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .notice-content h3 {
-            font-size: 0.95rem;
-            margin: 0;
-            color: #333;
-            line-height: 1.4;
-            white-space: normal;
-            overflow: hidden;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            height: auto;
-        }
-        
-        .notice-content p {
-            display: none;
-        }
-        
-        .notice-more {
-            display: none;
-        }
-        
-        .activity-item {
-            margin-bottom: 25px;
-            padding-bottom: 25px;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .activity-item:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
-        }
-        
-        .activity-date {
-            white-space: nowrap;
-            min-width: 95px;
-            color: var(--primary-color);
-            font-weight: 500;
-            margin-bottom: 10px;
-            margin-right: 15px;
-        }
-        
-        .activity-content h3 {
-            margin: 0;
-            font-size: 0.95rem;
-            white-space: normal;
-            overflow: hidden;
-            line-height: 1.4;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-        }
-        
-        .activity-more {
-            display: inline-block;
-            margin-top: 10px;
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 500;
-        }
-        
-        .activity-more:hover {
-            text-decoration: underline;
-        }
-        
-        .activity-image {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin: 15px 0;
-        }
-        
-        .simple-activity {
-            display: flex;
-            align-items: flex-start;
-            padding: 10px 15px;
-            margin-bottom: 0;
-            border-bottom: 1px solid #f0f0f0;
-            min-height: 50px;
-            height: auto;
-            box-sizing: border-box;
-        }
-        
-        .simple-activity:last-child {
-            border-bottom: none;
-        }
-        
-        .simple-activity .activity-date {
-            margin-bottom: 0;
-            margin-right: 15px;
-            min-width: 80px;
-        }
-        
-        .simple-activity .activity-content {
-            flex: 1;
-        }
-        
-        .simple-activity .activity-content h3 {
-            margin: 0;
-            font-size: 0.95rem;
-            white-space: normal;
-            overflow: hidden;
-            line-height: 1.4;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-        }
-        
-        .simple-activity .activity-content p,
-        .simple-activity .activity-more {
-            display: none;
-        }
-        
-        .featured-activity {
-            padding: 15px;
-            background-color: #f9f9f9;
-            border-radius: 8px;
-            margin-bottom: 10px;
-        }
-        
-        .featured-activity-container {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .featured-activity-image {
-            flex: 0 0 40%;
-        }
-        
-        .featured-activity-info {
-            flex: 1;
-        }
-        
-        .activity-image {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            object-fit: cover;
-            display: block;
-        }
-        
-        .activity-list {
-            padding: 10px;
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-        }
-        
-        .news-list, .activity-list {
-            padding: 10px;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .academic-activities, .news-board {
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-        }
-        
-        .left-column, .right-column {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-        
-        .notice-board {
-            margin-bottom: 30px;
-            flex: 0 0 auto;
-        }
-        
-        .academic-activities {
-            flex: 1 1 auto;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .news-item {
-            display: flex;
-            padding: 15px;
-            margin-bottom: 0;
-            border-bottom: 1px solid #eee;
-            transition: background-color 0.2s ease;
-        }
-        
-        .news-item:hover {
-            background-color: #f9f9f9;
-        }
-        
-        .news-item:last-child {
-            margin-bottom: 0;
-            padding-bottom: 15px;
-            border-bottom: none;
-        }
-        
-        .news-date {
-            flex: 0 0 90px;
-            color: var(--primary-color);
-            font-weight: 500;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            height: 100%;
-        }
-        
-        .news-content {
-            flex: 1;
-        }
-        
-        .news-content h3 {
-            font-size: 1.05rem;
-            margin: 0 0 10px 0;
-            color: #333;
-            line-height: 1.4;
-        }
-        
-        .news-content p {
-            margin: 8px 0;
-            font-size: 0.9rem;
-            line-height: 1.5;
-            color: #555;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        
-        .news-more {
-            display: inline-block;
-            margin-top: 0;
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9rem;
-        }
-        
-        .news-more:hover {
-            text-decoration: underline;
-        }
-        
-        .more-link {
-            text-align: right;
-            padding: 10px 20px;
-            border-top: 1px solid #eee;
-            display: none;
-        }
-        
-        .more-link-top {
-            color: white;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: normal;
-            transition: opacity 0.2s ease;
-        }
-        
-        .more-link-top:hover {
-            opacity: 0.8;
-        }
-        
-        .more-link-top i {
-            margin-left: 5px;
-            font-size: 0.8rem;
-        }
-        
-        @media (max-width: 768px) {
-            .content-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        .notice-title-link {
-            color: #333;
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-        
-        .notice-title-link:hover {
-            color: var(--primary-color);
-        }
-    </style>
-
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
                     <div class="lab-name-footer">
-                        <h3>前沿技术研究实验室</h3>
-                        <p>Advanced Technology Research Laboratory</p>
+                        <h3>人工智能与算力技术实验室</h3>
+                        <p>AI Lab</p>
                     </div>
                 </div>
                 <div class="footer-links">
@@ -663,83 +292,12 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2024 前沿技术研究实验室. 保留所有权利.</p>
+                <p>&copy; 2024 人工智能与算力技术实验室. 保留所有权利.</p>
             </div>
         </div>
     </footer>
 
     <script src="js/main.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        // 导航栏滚动效果
-        $(window).scroll(function() {
-            if ($(this).scrollTop() > 50) {
-                $('.navbar').addClass('scrolled');
-            } else {
-                $('.navbar').removeClass('scrolled');
-            }
-        });
-
-        // 移动端菜单
-        $('.menu-toggle').click(function() {
-            $('.navbar-links').toggleClass('active');
-            $(this).toggleClass('active');
-        });
-
-        // 研究亮点滑块控制
-        document.addEventListener('DOMContentLoaded', function() {
-            const slider = document.querySelector('.publication-slider');
-            const prevBtn = document.querySelector('.slider-prev');
-            const nextBtn = document.querySelector('.slider-next');
-            const cards = document.querySelectorAll('.publication-card');
-            
-            if(!slider || !prevBtn || !nextBtn || cards.length === 0) return;
-            
-            let cardWidth = cards[0].offsetWidth + 20; // 卡片宽度 + 边距
-            let visibleCards = Math.floor(slider.offsetWidth / cardWidth);
-            if(visibleCards === 0) visibleCards = 1; // 确保至少显示一张卡片
-            let currentIndex = 0;
-            
-            // 更新按钮状态
-            function updateButtons() {
-                prevBtn.classList.toggle('disabled', currentIndex <= 0);
-                nextBtn.classList.toggle('disabled', currentIndex >= cards.length - visibleCards);
-            }
-            
-            // 滑动到指定索引
-            function slideTo(index) {
-                currentIndex = Math.max(0, Math.min(index, cards.length - visibleCards));
-                slider.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
-                updateButtons();
-            }
-            
-            // 向前滑动
-            prevBtn.addEventListener('click', function() {
-                if(currentIndex > 0) {
-                    slideTo(currentIndex - 1);
-                }
-            });
-            
-            // 向后滑动
-            nextBtn.addEventListener('click', function() {
-                if(currentIndex < cards.length - visibleCards) {
-                    slideTo(currentIndex + 1);
-                }
-            });
-            
-            // 初始化按钮状态
-            updateButtons();
-            
-            // 窗口大小改变时重新计算
-            window.addEventListener('resize', function() {
-                cardWidth = cards[0].offsetWidth + 20; // 重新计算卡片宽度
-                const newVisibleCards = Math.max(1, Math.floor(slider.offsetWidth / cardWidth));
-                if(newVisibleCards !== visibleCards) {
-                    visibleCards = newVisibleCards;
-                    slideTo(currentIndex);
-                }
-            });
-        });
-    </script>
 </body>
 </html> 
