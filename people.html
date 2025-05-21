@@ -3,24 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="人工智能与算力技术实验室团队成员，包括教授、科研人员和学生等">
     <title>团队成员 - 人工智能与算力技术实验室</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="people.css">
     <style>
-        /* 覆盖lab-intro.css中冲突的样式 */
-        .sub-dropdown {
-            position: relative !important;
-            left: auto !important;
-            top: auto !important;
-            background-color: transparent !important;
-            min-width: auto !important;
-            box-shadow: none !important;
-            border-radius: 0 !important;
-            z-index: auto !important;
-            padding: 0 !important;
-        }
-        
+        /* 导航样式覆盖 */
         .submenu {
             position: absolute;
             top: -12px;
@@ -43,6 +32,29 @@
             transform: translateX(0);
             transition-delay: 0s;
             pointer-events: auto;
+        }
+        
+        /* 调整容器宽度以适应5个卡片 */
+        .container {
+            max-width: 1280px !important;
+            width: 95% !important;
+            margin: 0 auto !important;
+            padding: 0 15px !important;
+        }
+        
+        /* 确保people-section中的容器宽度足够 */
+        .people-section .container {
+            max-width: 1280px !important;
+        }
+        
+        /* 调整卡片大小 */
+        .people-section .people-grid {
+            grid-template-columns: repeat(5, 1fr) !important;
+            gap: 15px !important;
+        }
+        
+        .people-section .people-image {
+            height: 240px !important;
         }
     </style>
 </head>
@@ -112,12 +124,6 @@
         </div>
     </header>
 
-    <section class="people-hero hero-section">
-        <div class="container">
-            <h1 class="page-title">我们的团队</h1>
-            <p class="page-subtitle">由富有激情的科研人员和学生组成的多元化团队，致力于人工智能与算力技术研究与创新</p>
-        </div>
-    </section>
 
     <section class="people-section" id="teachers">
         <div class="container">
@@ -160,7 +166,7 @@
                         <img src="images/people/teacher3.jpg" alt="王建州">
                     </div>
                     <div class="people-info">
-                        <h3>王建州<h3>
+                        <h3>王建州</h3>
                         <p class="people-title">教授、博士生导师</p>
                         <p class="people-research">研究方向：大数据处理与分析、人工智能与数学建模</p>
                         <div class="people-links">
